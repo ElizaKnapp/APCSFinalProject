@@ -16,6 +16,11 @@ public class Player extends Character {
     }
   }
   
+  void display() {
+    fill(255);
+    rect(this.xPos, this.yPos, 40, 40);
+  }
+  
   void keyPressed() {
     if (key == CODED) {
       if (keyCode == RIGHT) {
