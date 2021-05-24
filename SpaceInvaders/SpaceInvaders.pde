@@ -11,25 +11,29 @@ void setup() {
 void draw() {
   // wipe background to black
   background(0);
+  displayPlayer();
+}
+
+void displayPlayer() {
   p.move();
   p.display();
 }
 
 void keyPressed() {
-    if (key == CODED) {
-      if (keyCode == RIGHT) {
-        p.changeDirection(1);
-      }
-      if (keyCode == LEFT) {
-        p.changeDirection(-1);
-      }
+  if (key == CODED) {
+    if (keyCode == RIGHT) {
+      p.changeDirection(1);
     }
+    if (keyCode == LEFT) {
+      p.changeDirection(-1); 
+    }
+  }
 }
   
 void keyReleased() {
-    if (key == CODED) {
-      if (keyCode == RIGHT || keyCode == LEFT) {
-        p.changeDirection(0);
-      }
+  if (key == CODED) {
+    if (keyCode == RIGHT || keyCode == LEFT) {
+      p.changeDirection(0);
     }
+  }
 }
