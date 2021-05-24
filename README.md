@@ -12,7 +12,7 @@ More Information: https://docs.google.com/document/d/1mjWuRU64XitgxhKxo5nE0pvTtI
 
 ## Development Log
 ### DAY 1: May 24
-- **Eliza**
+- **Eliza** <br>
   Set up the general layout and display of the game. Created Player Class and started Alien Class.
-- **Rachel**
+- **Rachel** <br>
   Created Bullet classes and its subclasses.
