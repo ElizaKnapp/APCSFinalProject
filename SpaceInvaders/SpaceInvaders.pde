@@ -1,12 +1,12 @@
 // instance variables
 Player p;
-Bullet b;
+GoodBullet b;
+int numGoodBullets = 0;
 
 // setup
 void setup() {
   size(800, 600);
   p = new Player(0, 8);
-  //b = new Bullet(400, 500, -2); //testing
 }
 
 // runs multiple times
@@ -14,8 +14,7 @@ void draw() {
   // wipe background to black
   background(0);
   displayPlayer();
-  //b.move();
-  //b.display();
+  checkBullet();
 }
 
 void displayPlayer() {
@@ -24,7 +23,12 @@ void displayPlayer() {
 }
 
 void checkBullet() {
-  //check if bullet is hitting any entity
+  // check is bullet is shot
+  if (numGoodBullets == 1) {
+    b.move();
+    b.display();
+  }
+  // check if bullet is hitting any entity
 }
 
 void keyPressed() {
@@ -36,6 +40,10 @@ void keyPressed() {
       p.changeDirection(-1); 
     }
   }
+  if (keyCode == ' ') { // SPACE
+    b = new GoodBullet(p.xPos, p.yPos, -2);
+    numGoodBullets += 1;
+  } 
 }
   
 void keyReleased() {
