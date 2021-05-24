@@ -6,7 +6,7 @@ Alien[][] aliens;
 
 // setup
 void setup() {
-  size(700, 600);
+  size(600, 600);
   p = new Player(0, 500, 8);
   aliens = new Alien[5][11];
   for (int i = 0; i < 5; i++) {
@@ -23,6 +23,7 @@ void draw() {
   displayPlayer();
   checkBullet();
   displayAlien();
+  moveAlien();
 }
 
 void displayPlayer() {
@@ -49,6 +50,16 @@ void displayAlien() {
       aliens[i][j].display();
     }
   }
+}
+
+void moveAlien() {
+  for (int i = 0; i < 5; i++) {
+    for (int j = 0; j < 11; j++) {
+      aliens[i][j].move();
+    }
+  }
+  // FIGURE OUT THE DELAY
+  delay(100);
 }
 
 void keyPressed() {
