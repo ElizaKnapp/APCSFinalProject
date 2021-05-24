@@ -1,7 +1,7 @@
 // instance variables
 Player p;
 GoodBullet b;
-int numGoodBullets = 0;
+boolean goodBullet = false;
 
 // setup
 void setup() {
@@ -24,9 +24,12 @@ void displayPlayer() {
 
 void checkBullet() {
   // check is bullet is shot
-  if (numGoodBullets > 0) {
+  if (goodBullet) {
     b.move();
     b.display();
+    if (!b.isVisible) {
+      goodBullet = false;
+    }
   }
   // check if bullet is hitting any entity
 }
@@ -41,8 +44,10 @@ void keyPressed() {
     }
   }
   if (keyCode == ' ') { // SPACE
-    b = new GoodBullet(p.xPos, p.yPos, -2);
-    numGoodBullets += 1;
+    if (!goodBullet){
+      b = new GoodBullet(p.xPos, p.yPos, -5);
+      goodBullet = true;
+    }
   } 
 }
   
