@@ -8,12 +8,14 @@ public class Bullet extends Character {
   
   void move() {
     //GoodBullet will move up because it has a neg speed
-    yPos += speed;
+    this.yPos += speed;
   }
   
   void display() {
-    rectMode(CENTER);
-    rect(this.xPos, this.yPos, 2, 10);
+    if (this.isVisible) {
+      rectMode(CENTER);
+      rect(this.xPos, this.yPos, 2, 10);
+    }
   }
   
   void changeVisibility() {

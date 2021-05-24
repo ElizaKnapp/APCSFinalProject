@@ -24,7 +24,7 @@ void displayPlayer() {
 
 void checkBullet() {
   // check is bullet is shot
-  if (numGoodBullets == 1) {
+  if (numGoodBullets > 0) {
     b.move();
     b.display();
   }
