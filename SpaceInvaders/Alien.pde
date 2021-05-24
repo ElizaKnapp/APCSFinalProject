@@ -6,5 +6,12 @@ public class Alien extends Character {
     super(x, y, 10); // 10 is the default alien speed
   }
   
+  void move() {
+    this.xPos += this.speed;
+  }
+  
+  void display() {
+  }
+  
   
 }
