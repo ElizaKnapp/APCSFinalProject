@@ -16,4 +16,8 @@ public class Bullet extends Character {
     rect(this.xPos, this.yPos, 2, 10);
   }
   
+  void changeVisibility() {
+    isVisible = false;
+  }
+  
 }
