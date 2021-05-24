@@ -2,8 +2,9 @@ public class Player extends Character {
   int direction = 0;
   int size = 40;
   
-  Player(int x, int s) {
-    super(x, 500, s);
+  Player(int x, int y, int s) {
+    // sets initial y position to 500
+    super(x, y, s);
   }
   
   void move() {

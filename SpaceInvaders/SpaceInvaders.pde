@@ -6,7 +6,7 @@ boolean goodBullet = false;
 // setup
 void setup() {
   size(800, 600);
-  p = new Player(0, 8);
+  p = new Player(0, 500, 8);
 }
 
 // runs multiple times

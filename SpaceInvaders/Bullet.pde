@@ -13,8 +13,8 @@ public class Bullet extends Character {
   
   void display() {
     if (this.isVisible) {
-      rectMode(CENTER);
-      rect(this.xPos, this.yPos, 2, 10);
+      // 20 because size = 40 and that is 40 / 2 !!!!
+      rect(this.xPos + 20, this.yPos, 2, 10);
     }
   }
   
