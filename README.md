@@ -10,7 +10,7 @@ This project is a version of the game Space Invaders done in processing. It is a
 
 More Information: https://docs.google.com/document/d/1mjWuRU64XitgxhKxo5nE0pvTtIN6Cw9Z8P2SdfM3YEw/edit?usp=sharing
 
-##Development Log
+## Development Log
 ### DAY 1: May 24
 - **Eliza**
   Set up the general layout and display of the game. Created Player Class and started Alien Class.
