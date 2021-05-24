@@ -6,14 +6,12 @@ Alien[][] aliens;
 
 // setup
 void setup() {
-  size(800, 600);
+  size(700, 600);
   p = new Player(0, 500, 8);
   aliens = new Alien[5][11];
   for (int i = 0; i < 5; i++) {
     for (int j = -5; j < 6; j++) {
-      int initialRowYPos = 100;
-      int middleColumnXPos = width / 2;
-      aliens[i][j + 5] = new Alien(width / 2 + j * 40, 100 + i * 50); // CHANGE TO ACTUAL POSITIONS
+      aliens[i][j + 5] = new Alien(width / 2 + j * 40, 50 + i * 40); // CHANGE TO ACTUAL POSITIONS
     }
   }
 }
@@ -47,7 +45,9 @@ void checkBullet() {
 void displayAlien() {
   // loop through each row of the array (aliens) and move them all one at a time
   for (int i = 0; i < 5; i++) {
-    
+    for (int j = 0; j < 11; j++) {
+      aliens[i][j].display();
+    }
   }
 }
 

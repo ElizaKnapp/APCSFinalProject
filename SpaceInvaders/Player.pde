@@ -9,7 +9,7 @@ public class Player extends Character {
   
   void move() {
     if (this.xPos < 0) this.xPos = 0;
-    if (this.xPos > 760) this.xPos = 760;
+    if (this.xPos > 660) this.xPos = 660;
     if (direction == -1) {
       this.xPos -= this.speed;
     }

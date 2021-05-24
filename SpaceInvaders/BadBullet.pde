@@ -6,7 +6,7 @@ public class BadBullet extends Bullet {
   void display() {
     super.display();
     // if it reaches the top 
-    if (this.yPos > 800) {
+    if (this.yPos > 700) {
       this.changeVisibility(); 
     }
   }

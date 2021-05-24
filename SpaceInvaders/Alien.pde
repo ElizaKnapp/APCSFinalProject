@@ -11,6 +11,8 @@ public class Alien extends Character {
   }
   
   void display() {
+    fill(255);
+    ellipse(this.xPos, this.yPos, 30, 25);
   }
   
   
