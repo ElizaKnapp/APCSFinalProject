@@ -1,5 +1,6 @@
 public class Player extends Character {
   int direction = 0;
+  int size = 40;
   
   Player(int x, int s) {
     super(x, 500, s);
@@ -18,7 +19,7 @@ public class Player extends Character {
   
   void display() {
     fill(255);
-    rect(this.xPos, this.yPos, 40, 40);
+    rect(this.xPos, this.yPos, size, size);
   }
   
   void keyPressed() {
