@@ -17,6 +17,14 @@ public class Player extends Character {
   }
   
   void keyPressed() {
+    if (key == CODED) {
+      if (keyCode == RIGHT) {
+        direction = 1;
+      }
+      if (keyCode == LEFT) {
+        direction = -1;
+      }
+    }
   }
   
 }
