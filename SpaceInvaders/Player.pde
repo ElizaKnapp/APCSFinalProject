@@ -27,4 +27,12 @@ public class Player extends Character {
     }
   }
   
+  void keyReleased() {
+    if (key == CODED) {
+      if (keyCode == RIGHT || keyCode == LEFT) {
+        direction = 0;
+      }
+    }
+  }
+  
 }
