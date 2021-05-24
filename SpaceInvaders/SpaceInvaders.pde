@@ -45,7 +45,7 @@ void keyPressed() {
   }
   if (keyCode == ' ') { // SPACE
     if (!goodBullet){
-      b = new GoodBullet(p.xPos, p.yPos, -5);
+      b = new GoodBullet(p.xPos, p.yPos, -8);
       goodBullet = true;
     }
   } 
