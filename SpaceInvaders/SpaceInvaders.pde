@@ -3,6 +3,7 @@ Player p;
 GoodBullet b;
 boolean goodBullet = false;
 Alien[][] aliens;
+int rowMoving = 4; // this is the 5th row
 
 // setup
 void setup() {
@@ -52,12 +53,20 @@ void displayAlien() {
       }
     }
   }
-  // loop through each row of the array (aliens) and move them all one at a time
+  // display all the alines
   for (int i = 0; i < 5; i++) {
     for (int j = 0; j < 11; j++) {
-      aliens[i][j].changePos();
+      aliens[i][j].display();
     }
   }
+    
+  // move the row
+  for (int j = 0; j < 11; j++) {
+    aliens[rowMoving][j].move();
+  }
+  delay(100);
+  rowMoving --;
+  if (rowMoving < 0) rowMoving = 4;
 }
 
 void keyPressed() {
