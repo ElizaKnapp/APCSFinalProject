@@ -23,7 +23,6 @@ void draw() {
   displayPlayer();
   checkBullet();
   displayAlien();
-  moveAlien();
 }
 
 void displayPlayer() {
@@ -44,22 +43,21 @@ void checkBullet() {
 }
 
 void displayAlien() {
+  // check if aliens have touched side
+  if (aliens[0][10].xPos > 585 || aliens[0][0].xPos < 15) {
+    // if they are at an edge, change all alien directions
+    for (int i = 0; i < 5; i++) {
+      for (int j = 0; j < 11; j++) {
+        aliens[i][j].changeDirection();
+      }
+    }
+  }
   // loop through each row of the array (aliens) and move them all one at a time
   for (int i = 0; i < 5; i++) {
     for (int j = 0; j < 11; j++) {
-      aliens[i][j].display();
+      aliens[i][j].changePos();
     }
   }
-}
-
-void moveAlien() {
-  for (int i = 0; i < 5; i++) {
-    for (int j = 0; j < 11; j++) {
-      aliens[i][j].move();
-    }
-  }
-  // FIGURE OUT THE DELAY
-  delay(100);
 }
 
 void keyPressed() {
