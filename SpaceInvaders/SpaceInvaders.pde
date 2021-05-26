@@ -1,5 +1,3 @@
-int offset = second();
-
 // instance variables
 Player p;
 GoodBullet b;
@@ -46,7 +44,7 @@ void checkBullet() {
 
 void displayAlien() {
   // move the row
-  int s = second() - offset;
+  int s = second();
   for (int j = 0; j < 11; j++) {
     aliens[s % 5][j].move();
   }
