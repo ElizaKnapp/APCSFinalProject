@@ -23,10 +23,14 @@ public class Bullet extends Character {
   }
   
   boolean hitAlien(Alien a) {
-    return (
-      abs(this.xPos - 1 - a.xPos) <= (a.xDiameter / 2) &&
-      abs(this.yPos - 5 - a.yPos) <= (a.yDiameter / 2)
-    );
+    if (a.isVisible) {
+      return (
+        dist(this.xPos - 1, this.yPos - 5, a.xPos, a.yPos) <= a.xDiameter / 2
+      );
+    } else {
+      return false;
+    }
+    
   }
   
 }

@@ -40,6 +40,7 @@ void checkBullet() {
       for (int c = 0; c < 11; c++) {
         if (b.hitAlien(aliens[r][c])) {
           b.changeVisibility();
+          aliens[r][c].changeVisibility();
         }
       }
     }

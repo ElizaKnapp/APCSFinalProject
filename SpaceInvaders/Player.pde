@@ -19,7 +19,7 @@ public class Player extends Character {
   }
   
   void display() {
-    fill(255);
+    fill(#40F00C);
     rect(this.xPos, this.yPos, size, size);
   }
   
