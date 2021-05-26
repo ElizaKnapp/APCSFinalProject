@@ -1,3 +1,5 @@
+int offset = second();
+
 // instance variables
 Player p;
 GoodBullet b;
@@ -44,9 +46,9 @@ void checkBullet() {
 
 void displayAlien() {
   // move the row
-  int m = millis();
+  int s = second() - offset;
   for (int j = 0; j < 11; j++) {
-    aliens[m /* replace! */][j].move();
+    aliens[s % 5][j].move();
   }
   
   // check if aliens have touched side
