@@ -4,7 +4,6 @@ public class GoodBullet extends Bullet {
   }
   
   void display() {
-    fill(#40F00C);
     super.display();
     // if it reaches the top 
     if (this.yPos < 0) {

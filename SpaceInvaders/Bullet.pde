@@ -14,7 +14,7 @@ public class Bullet extends Character {
   void display() {
     if (this.isVisible) {
       // 20 because size = 40 and that is 40 / 2 !!!!
-      rect(this.xPos + 20, this.yPos, 2, 10);
+      ellipse(this.xPos, this.yPos, 5, 5);
     }
   }
   
@@ -25,7 +25,7 @@ public class Bullet extends Character {
   boolean hitAlien(Alien a) {
     if (a.isVisible) {
       return (
-        dist(this.xPos - 1, this.yPos - 5, a.xPos, a.yPos) <= a.xDiameter / 2
+        dist(this.xPos, this.yPos, a.xPos, a.yPos) <= a.xDiameter / 2
       );
     } else {
       return false;
