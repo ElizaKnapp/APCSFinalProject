@@ -12,7 +12,7 @@ public class Player extends Character {
     if (this.xPos > 560) this.xPos = 560;
     if (direction == -1) {
       this.xPos -= this.speed;
-    }s
+    }
     if (direction == 1) {
       this.xPos += this.speed;
     }
