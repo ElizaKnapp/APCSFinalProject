@@ -18,4 +18,11 @@ More Information: https://docs.google.com/document/d/1mjWuRU64XitgxhKxo5nE0pvTtI
   Created a Character abstract class for all of the moving objects. Started Bullet classes and its subclasses.
 ### DAY 2: May 25
 - **Eliza** <br>
-  Got the aliens to move in domino and all move down together when the top one hits a wall.
+  Got the aliens to move in domino[edit: non-succesfully] and all move down together when the top one hits a wall.
+### DAY 2: May 25
+- **Eliza** <br>
+  Made bullets disappear when they hit aliens and experimented with millis() to create the domino movement effect.
+- **Rachel** <br>
+  Made bad bullets disappear when they hit the player and created an outline of the start screen of the game.
+  
+
