@@ -3,7 +3,7 @@ public class Alien extends Character {
   boolean moveRight = true; // alien starts off moving to the right (when it moves left, this is false)
   
   Alien(int x, int y) {
-    super(x, y, 10); // 10 is the default alien speed
+    super(x, y, 1); // 10 is the default alien speed
   }
   
   void setYPos(int newPos) {
@@ -20,7 +20,7 @@ public class Alien extends Character {
   
   void changeDirection() {
     moveRight = !moveRight;
-    this.yPos += 4; 
+    this.yPos += 2; 
   }
   
   void display() {
