@@ -10,7 +10,7 @@ boolean start;
 // setup
 void setup() {
   size(600, 600);
-  p = new Player(0, 500, 8);
+  p = new Player(280, 500, 8); //280 is the center
   aliens = new Alien[5][11];
   for (int i = 0; i < 5; i++) {
     for (int j = -5; j < 6; j++) {
@@ -24,6 +24,10 @@ void draw() {
   // wipe background to black
   background(0);
   if (!start) { //start screen
+    fill(255);
+    if (mouseX >= 50 && mouseX <= 550 && mouseY >= 250 && mouseY <= 300) {
+      fill(#40F00C);
+    }
     textSize(50); 
     text("CLICK HERE TO PLAY", 50, 300);
   } else {
