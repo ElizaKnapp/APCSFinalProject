@@ -5,6 +5,7 @@ BadBullet bad;
 boolean goodBullet = false;
 boolean badBullet = false;
 Alien[][] aliens;
+boolean start;
 
 // setup
 void setup() {
@@ -22,9 +23,14 @@ void setup() {
 void draw() {
   // wipe background to black
   background(0);
-  displayPlayer();
-  checkBullet();
-  displayAlien();
+  if (!start) { //start screen
+    textSize(50); 
+    text("CLICK HERE TO PLAY", 50, 300);
+  } else {
+    displayPlayer();
+    checkBullet();
+    displayAlien();
+  }
 }
 
 void displayPlayer() {
@@ -119,5 +125,11 @@ void keyReleased() {
     if (keyCode == RIGHT || keyCode == LEFT) {
       p.changeDirection(0);
     }
+  }
+}
+
+void mousePressed() { // when the player wants to start
+  if (mouseX >= 50 && mouseX <= 550 && mouseY >= 250 && mouseY <= 300) {
+    start = true;
   }
 }
