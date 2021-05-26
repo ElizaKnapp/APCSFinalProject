@@ -42,8 +42,5 @@ public class Alien extends Character {
   void changeVisibility() {
     isVisible = false;
   }
-  
  
-  
-  
 }

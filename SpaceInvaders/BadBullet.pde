@@ -13,7 +13,7 @@ public class BadBullet extends Bullet {
   }
   
   boolean hitPlayer(Player p) {
-    return (dist(this.xPos, this.yPos, p.xPos, p.yPos) <= p.size);
+    return (dist(this.xPos, this.yPos + p.size/2, p.xPos + p.size/2, p.yPos) <= p.size/2);
   }
   
 }

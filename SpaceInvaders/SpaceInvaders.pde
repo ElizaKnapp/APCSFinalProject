@@ -54,6 +54,9 @@ void checkBullet() {
   if (badBullet) { //when an alien shoots
     bad.move();
     bad.display();
+    if (bad.hitPlayer(p)) { // when the alien hits the player
+      bad.changeVisibility();
+    }
     if (!bad.isVisible) {
       badBullet = false;
     }
