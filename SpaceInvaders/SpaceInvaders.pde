@@ -108,7 +108,7 @@ void keyPressed() {
   }
   if (keyCode == ' ') { // SPACE
     if (!goodBullet){
-      b = new GoodBullet(p.xPos, p.yPos, -8);
+      b = new GoodBullet(p.xPos + p.size / 2, p.yPos, -8);
       goodBullet = true;
     }
   } 
