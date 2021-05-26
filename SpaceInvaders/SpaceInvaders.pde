@@ -3,7 +3,6 @@ Player p;
 GoodBullet b;
 boolean goodBullet = false;
 Alien[][] aliens;
-int rowMoving = 4; // this is the 5th row
 
 // setup
 void setup() {
@@ -44,6 +43,12 @@ void checkBullet() {
 }
 
 void displayAlien() {
+  // move the row
+  int m = millis();
+  for (int j = 0; j < 11; j++) {
+    aliens[m /* replace! */][j].move();
+  }
+  
   // check if aliens have touched side
   if (aliens[0][10].xPos > 585 || aliens[0][0].xPos < 15) {
     // if they are at an edge, change all alien directions
@@ -59,14 +64,7 @@ void displayAlien() {
       aliens[i][j].display();
     }
   }
-    
-  // move the row
-  for (int j = 0; j < 11; j++) {
-    aliens[rowMoving][j].move();
-  }
-  delay(100);
-  rowMoving --;
-  if (rowMoving < 0) rowMoving = 4;
+   
 }
 
 void keyPressed() {

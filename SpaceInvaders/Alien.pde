@@ -20,7 +20,7 @@ public class Alien extends Character {
   
   void changeDirection() {
     moveRight = !moveRight;
-    this.yPos += 4;
+    this.yPos += 4; 
   }
   
   void display() {
