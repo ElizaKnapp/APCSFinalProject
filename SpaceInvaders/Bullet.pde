@@ -22,4 +22,8 @@ public class Bullet extends Character {
     isVisible = false;
   }
   
+  boolean hitAlien(Alien a) {
+    return (dist(this.xPos-1, this.yPos-5, a.xPos, a.yPos) < a.xDiameter) && a.yPos == this.yPos;
+  }
+  
 }

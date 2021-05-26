@@ -35,11 +35,18 @@ void checkBullet() {
   if (goodBullet) {
     b.move();
     b.display();
+    // check if bullet is hitting an alien
+    for (int r = 0; r < 5; r++) {
+      for (int c = 0; c < 11; c++) {
+        if (b.hitAlien(aliens[r][c])) {
+          b.changeVisibility();
+        }
+      }
+    }
     if (!b.isVisible) {
       goodBullet = false;
     }
   }
-  // check if bullet is hitting any entity
 }
 
 void displayAlien() {
