@@ -16,3 +16,6 @@ More Information: https://docs.google.com/document/d/1mjWuRU64XitgxhKxo5nE0pvTtI
   Set up the general layout and display of the game. Created Player Class and started Alien Class.
 - **Rachel** <br>
   Created a Character abstract class for all of the moving objects. Started Bullet classes and its subclasses.
+### DAY 2: May 25
+- **Eliza** <br>
+  Got the aliens to move in domino and all move down together when the top one hits a wall.
