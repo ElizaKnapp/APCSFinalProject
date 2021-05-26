@@ -1,7 +1,9 @@
 // instance variables
 Player p;
 GoodBullet b;
+BadBullet bad;
 boolean goodBullet = false;
+boolean badBullet = false;
 Alien[][] aliens;
 
 // setup
@@ -48,6 +50,14 @@ void checkBullet() {
       goodBullet = false;
     }
   }
+  
+  if (badBullet) { //when an alien shoots
+    bad.move();
+    bad.display();
+    if (!bad.isVisible) {
+      badBullet = false;
+    }
+  }
 }
 
 void displayAlien() {
@@ -72,6 +82,14 @@ void displayAlien() {
     for (int j = 0; j < 11; j++) {
       aliens[i][j].display();
     }
+  }
+  
+  // aliens shoot bullets
+  if (!badBullet) {
+    int r = (int) Math.random() * 5;
+    int c = (int) Math.random() * 11;
+    bad = new BadBullet(aliens[r][c].xPos, aliens[r][c].yPos, 5);
+    badBullet = true;
   }
    
 }
