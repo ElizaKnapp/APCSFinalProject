@@ -44,9 +44,23 @@ void checkBullet() {
 
 void displayAlien() {
   // move the row
-  int s = second();
+  int m = millis();
   for (int j = 0; j < 11; j++) {
-    aliens[s % 5][j].move();
+    if (m % 1000 == 200) {
+      aliens[0][j].move();
+    }
+    if (m % 1000 == 400) {
+      aliens[1][j].move();
+    }
+    if (m % 1000 == 600) {
+      aliens[2][j].move();
+    }
+    if (m % 1000 == 800) {
+      aliens[3][j].move();
+    }
+    if (m % 1000 == 0) {
+      aliens[4][j].move();
+    }
   }
   
   // check if aliens have touched side
