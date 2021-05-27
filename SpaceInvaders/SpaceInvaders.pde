@@ -2,10 +2,11 @@
 Player p;
 GoodBullet b;
 BadBullet bad;
-boolean goodBullet = false;
-boolean badBullet = false;
+boolean goodBullet = false; //if player's bullet is present
+boolean badBullet = false; //if alien bullet is present
 Alien[][] aliens;
-boolean start;
+boolean start; //start screen
+int alive = 55; //number of aliens not shot
 
 // setup
 void setup() {
@@ -30,6 +31,9 @@ void draw() {
     }
     textSize(50); 
     text("CLICK HERE TO PLAY", 50, 300);
+  } else if (alive == 0) {
+    textSize(100); 
+    text("YOU WIN!", 75, 250);
   } else {
     displayPlayer();
     checkBullet();
@@ -43,7 +47,7 @@ void displayPlayer() {
 }
 
 void checkBullet() {
-  // check is bullet is shot
+  // check if bullet is shot
   if (goodBullet) {
     b.move();
     b.display();
@@ -52,7 +56,8 @@ void checkBullet() {
       for (int c = 0; c < 11; c++) {
         if (b.hitAlien(aliens[r][c])) {
           b.changeVisibility();
-          aliens[r][c].changeVisibility();
+          aliens[r][c].changeVisibility(); //alien dies
+          alive--; //less aliens visible
         }
       }
     }
@@ -101,6 +106,10 @@ void displayAlien() {
   if (!badBullet) {
     int r = (int) (Math.random() * 5);
     int c = (int) (Math.random() * 11);
+    while (!aliens[r][c].isVisible) { //so bullets only come from existing aliens
+      r = (int) (Math.random() * 5);
+      c = (int) (Math.random() * 11);
+    }
     bad = new BadBullet(aliens[r][c].xPos, aliens[r][c].yPos, 5);
     badBullet = true;
   }
