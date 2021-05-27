@@ -99,8 +99,8 @@ void displayAlien() {
   
   // aliens shoot bullets
   if (!badBullet) {
-    int r = (int) Math.random() * 5;
-    int c = (int) Math.random() * 11;
+    int r = (int) (Math.random() * 5);
+    int c = (int) (Math.random() * 11);
     bad = new BadBullet(aliens[r][c].xPos, aliens[r][c].yPos, 5);
     badBullet = true;
   }
