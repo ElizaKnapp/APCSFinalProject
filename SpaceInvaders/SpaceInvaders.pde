@@ -39,6 +39,12 @@ void draw() {
     fill(255,0,0);
     textSize(75); 
     text("GAME OVER!", 75, 250);
+    // play again button
+    if (mouseX >= 100 && mouseX <= 500 && mouseY >= 295 && mouseY <= 325) {
+      fill(#40F00C);
+    }
+    textSize(30);
+    text("CLICK HERE TO PLAY AGAIN", 100, 325);
   } else {
     displayPlayer();
     checkBullet();
@@ -153,7 +159,17 @@ void keyReleased() { //when not pressing keys, the player doesn't move
 }
 
 void mousePressed() { // when the player wants to start the game
-  if (mouseX >= 50 && mouseX <= 550 && mouseY >= 250 && mouseY <= 300) {
+  if (mouseX >= 50 && mouseX <= 550 && mouseY >= 250 && mouseY <= 300 && start == false) {
     start = true;
   }
+  // on the end screen
+  if (mouseX >= 100 && mouseX <= 500 && mouseY >= 295 && mouseY <= 325 && lives == 0) {
+    lives = 3;
+    alive = 55;
+    goodBullet = false; //if player's bullet is present
+    badBullet = false; //if alien bullet is present
+    // set everything up again to play
+    setup();
+  }
+ 
 }
