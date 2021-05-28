@@ -12,6 +12,7 @@ public class Block {
   
   void display() {
     if (isVisible) {
+      noStroke();
       fill(#40F00C);
       // depending on the amount of lives, adjust the number that are colored
       /*
