@@ -7,6 +7,7 @@ boolean badBullet = false; //if alien bullet is present
 Alien[][] aliens;
 boolean start; //start screen
 int alive = 55; //number of aliens not shot
+int lives = 3; //number of lives the player has
 
 // setup
 void setup() {
@@ -31,13 +32,18 @@ void draw() {
     }
     textSize(50); 
     text("CLICK HERE TO PLAY", 50, 300);
-  } else if (alive == 0) {
+  } else if (alive == 0) { //player shot all the aliens
     textSize(100); 
     text("YOU WIN!", 75, 250);
+  } else if (lives == 0) { //aliens killed player
+    fill(255,0,0);
+    textSize(75); 
+    text("GAME OVER!", 75, 250);
   } else {
     displayPlayer();
     checkBullet();
     displayAlien();
+    displayLives();
   }
 }
 
@@ -70,10 +76,11 @@ void checkBullet() {
     bad.move();
     bad.display();
     if (bad.hitPlayer(p)) { // when the alien hits the player
-      bad.changeVisibility();
+      bad.changeVisibility(); //bullet disappears
+      lives--; //player loses a life
     }
     if (!bad.isVisible) {
-      badBullet = false;
+      badBullet = false; //bad bullet does not exist on screen 
     }
   }
 }
@@ -95,7 +102,7 @@ void displayAlien() {
       }
     }
   }
-  // display all the alines
+  // display all the aliens
   for (int i = 0; i < 5; i++) {
     for (int j = 0; j < 11; j++) {
       aliens[i][j].display();
@@ -103,7 +110,7 @@ void displayAlien() {
   }
   
   // aliens shoot bullets
-  if (!badBullet) {
+  if (!badBullet) { //if no other alien bullets are on screen
     int r = (int) (Math.random() * 5);
     int c = (int) (Math.random() * 11);
     while (!aliens[r][c].isVisible) { //so bullets only come from existing aliens
@@ -111,29 +118,33 @@ void displayAlien() {
       c = (int) (Math.random() * 11);
     }
     bad = new BadBullet(aliens[r][c].xPos, aliens[r][c].yPos, 5);
-    badBullet = true;
-  }
-   
+    badBullet = true; //bad bullet exists on screen
+  }  
 }
 
 void keyPressed() {
   if (key == CODED) {
     if (keyCode == RIGHT) {
-      p.changeDirection(1);
+      p.changeDirection(1); //move right
     }
     if (keyCode == LEFT) {
-      p.changeDirection(-1); 
+      p.changeDirection(-1); //move left
     }
   }
-  if (keyCode == ' ') { // SPACE
+  if (keyCode == ' ') { //SPACE to shoot a bullet
     if (!goodBullet){
       b = new GoodBullet(p.xPos + p.size / 2, p.yPos, -8);
       goodBullet = true;
     }
   } 
 }
+
+void displayLives() {
+  textSize(25); 
+  text("LIVES: " + lives, 15, 575);
+}
   
-void keyReleased() {
+void keyReleased() { //when not pressing keys, the player doesn't move
   if (key == CODED) {
     if (keyCode == RIGHT || keyCode == LEFT) {
       p.changeDirection(0);
@@ -141,7 +152,7 @@ void keyReleased() {
   }
 }
 
-void mousePressed() { // when the player wants to start
+void mousePressed() { // when the player wants to start the game
   if (mouseX >= 50 && mouseX <= 550 && mouseY >= 250 && mouseY <= 300) {
     start = true;
   }
