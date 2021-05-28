@@ -14,6 +14,7 @@ public class Block {
     if (isVisible) {
       fill(#40F00C);
       // depending on the amount of lives, adjust the number that are colored
+      /*
       for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
           if (Math.random() * 4 + 1 > lives) {
@@ -25,6 +26,7 @@ public class Block {
         }
       }
       
+      */
       rect(xPos, yPos, size, size);
      }
   }

@@ -20,7 +20,7 @@ public class Player extends Character {
   
   void display() {
     fill(#40F00C);
-    rect(this.xPos, this.yPos, size, size);
+    rect(this.xPos, this.yPos, size, size / 2);
   }
   
   void changeDirection(int newDirection) {
