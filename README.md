@@ -24,3 +24,6 @@ Prototype: https://docs.google.com/document/d/1mjWuRU64XitgxhKxo5nE0pvTtIN6Cw9Z8
   Made bullets disappear when they hit aliens and experimented with millis() to create the domino movement effect.
 - **Rachel** <br>
   Made bad bullets disappear when they hit the player and created an outline of the start screen of the game.
+### DAY 4: May 27
+- **Rachel** <br>
+  Fixed how alien bullets are shot. Started to work on the win screen of the game.
