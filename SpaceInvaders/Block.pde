@@ -33,14 +33,16 @@ public class Block {
   }
    
   // takes in a bullet, checks if it hits it, and adjusts accordingly
-  void checkHit(Bullet b) {
-    if (abs(b.xPos - this.xPos) <= size && abs(b.yPos - this.yPos) <= size) {
+  boolean checkHit(Bullet b) {
+    if (abs(b.xPos - (this.xPos + size/2)) <= size && abs(b.yPos - (this.yPos + size/2)) <= size) {
       // decrease lives
       lives -= 1;   
       if (lives == 0) {
         isVisible = false;
       }
+      return true;
     }
+    return false;
   }
   
 }

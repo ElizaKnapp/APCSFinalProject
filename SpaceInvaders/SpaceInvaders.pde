@@ -149,10 +149,21 @@ void displayBarrier() {
   for (int i = 0; i < 4; i++) {
     barriers[i].display();
     if (goodBullet) {
-      barriers[i].checkHit(b); // checks if it was hit by a good bullet
+      if (barriers[i].checkHit(b)) {
+        // if it is hit change the visibility
+        b.changeVisibility();
+        b.display();
+        // there is no good bullet now
+        goodBullet = false; 
+      }
+      // checks if it was hit by a good bullet
     }
     if (badBullet) {
-      barriers[i].checkHit(bad); // checks if it was hit by a bad bullet
+      if (barriers[i].checkHit(bad)) {
+        bad.changeVisibility();
+        bad.display();
+        badBullet = false;
+      }// checks if it was hit by a bad bullet
     }
   }
 }

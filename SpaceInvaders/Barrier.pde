@@ -40,9 +40,13 @@ public class Barrier {
     }
   }
   
-  void checkHit(Bullet b) {
+  boolean checkHit(Bullet b) {
+    boolean ans = false;
     for (int i = 0; i < 11; i++) {
-      blocks[i].checkHit(b);
+      if (blocks[i].checkHit(b)) {
+        ans = true;
+      }
     }
+    return ans;
   }
 }
