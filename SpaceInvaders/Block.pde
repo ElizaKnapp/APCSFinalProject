@@ -13,22 +13,25 @@ public class Block {
   void display() {
     if (isVisible) {
       noStroke();
-      fill(#40F00C);
+      // fill(#40F00C);
       // depending on the amount of lives, adjust the number that are colored
-      /*
+     
       for (int i = 0; i < size; i++) {
         for (int j = 0; j < size; j++) {
           if (Math.random() * 4 + 1 > lives) {
             // for every time it is  equal, set an extra square to black (this might be a bug though because the black ones keep changing)
             // this bug can be fixed by setting the overall color first and putting this function in checkHit
             fill(0);
-            rect(xPos, yPos, 1, 1);
+            rect(xPos + i, yPos + j, 1, 1);
+          } else {
+            fill(#40F00C);
+            rect(xPos + i, yPos + j, 1, 1);
           }
         }
       }
       
-      */
-      rect(xPos, yPos, size, size);
+     
+      // rect(xPos, yPos, size, size);
      }
   }
    
