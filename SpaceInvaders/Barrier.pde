@@ -39,4 +39,10 @@ public class Barrier {
       blocks[i].display();
     }
   }
+  
+  void checkHit(Bullet b) {
+    for (int i = 0; i < 11; i++) {
+      blocks[i].checkHit(b);
+    }
+  }
 }

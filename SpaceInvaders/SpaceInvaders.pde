@@ -27,7 +27,7 @@ void setup() {
   int startXPos = 50;
   for (int i = 0; i < 4; i++) {
     // TO CHANGE LOCATION- the first parameter is the xPos of the top left of the barrier, the second is the yPos
-    barriers[i] = new Barrier(startXPos + 150 * i, 450);
+    barriers[i] = new Barrier(startXPos + 150 * i, 440);
   }
 }
 
@@ -148,6 +148,8 @@ void displayAlien() {
 void displayBarrier() {
   for (int i = 0; i < 4; i++) {
     barriers[i].display();
+    barriers[i].checkHit(b); // checks if it was hit by a good bullet
+    barriers[i].checkHit(bad); // checks if it was hit by a bad bullet
   }
 }
 
