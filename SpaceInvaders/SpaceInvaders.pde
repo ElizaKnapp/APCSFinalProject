@@ -8,6 +8,7 @@ Alien[][] aliens;
 boolean start; //start screen
 int alive = 55; //number of aliens not shot
 int lives = 3; //number of lives the player has
+Barrier[] barriers;
 
 // setup
 void setup() {
@@ -18,6 +19,14 @@ void setup() {
     for (int j = -5; j < 6; j++) {
       aliens[i][j + 5] = new Alien(width / 2 + j * 40, 50 + i * 40); // CHANGE TO ACTUAL POSITIONS
     }
+  }
+  
+  // create the array of barriers
+  // total screen space = 600 so say the barriers are at 75, 225, 375, 525
+  barriers = new Barrier[4];
+  int startXPos = 75;
+  for (int i = 0; i < 4; i++) {
+    barriers[i] = new Barrier(75 + 150 * i);
   }
 }
 
@@ -56,6 +65,7 @@ void draw() {
     checkBullet();
     displayAlien();
     displayLives();
+    displayBarrier();
   }
 }
 
@@ -132,6 +142,12 @@ void displayAlien() {
     bad = new BadBullet(aliens[r][c].xPos, aliens[r][c].yPos, 5);
     badBullet = true; //bad bullet exists on screen
   }  
+}
+
+void displayBarrier() {
+  for (int i = 0; i < 4; i++) {
+    barriers[i].display();
+  }
 }
 
 void keyPressed() {
