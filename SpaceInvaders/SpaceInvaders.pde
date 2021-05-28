@@ -148,8 +148,12 @@ void displayAlien() {
 void displayBarrier() {
   for (int i = 0; i < 4; i++) {
     barriers[i].display();
-    barriers[i].checkHit(b); // checks if it was hit by a good bullet
-    barriers[i].checkHit(bad); // checks if it was hit by a bad bullet
+    if (goodBullet) {
+      barriers[i].checkHit(b); // checks if it was hit by a good bullet
+    }
+    if (badBullet) {
+      barriers[i].checkHit(bad); // checks if it was hit by a bad bullet
+    }
   }
 }
 
