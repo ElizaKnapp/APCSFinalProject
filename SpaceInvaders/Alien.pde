@@ -24,7 +24,7 @@ public class Alien extends Character {
   
   void changeDirection() {
     moveRight = !moveRight;
-    this.yPos += 2; 
+    this.yPos += 4; 
   }
   
   void display() {

@@ -34,9 +34,15 @@ void draw() {
     text("CLICK HERE TO PLAY", 50, 300);
   } else if (alive == 0) { //player shot all the aliens
     textSize(100); 
+    fill(255);
     text("YOU WIN!", 75, 250);
+    if (mouseX >= 100 && mouseX <= 500 && mouseY >= 295 && mouseY <= 325) {
+      fill(#40F00C);
+    }
+    textSize(30);
+    text("CLICK HERE TO PLAY AGAIN", 100, 325);
   } else if (lives == 0) { //aliens killed player
-    fill(255,0,0);
+    fill(255);
     textSize(75); 
     text("GAME OVER!", 75, 250);
     // play again button
@@ -163,7 +169,7 @@ void mousePressed() { // when the player wants to start the game
     start = true;
   }
   // on the end screen
-  if (mouseX >= 100 && mouseX <= 500 && mouseY >= 295 && mouseY <= 325 && lives == 0) {
+  if (mouseX >= 100 && mouseX <= 500 && mouseY >= 295 && mouseY <= 325 && (lives == 0 || alive == 0)) {
     lives = 3;
     alive = 55;
     goodBullet = false; //if player's bullet is present
