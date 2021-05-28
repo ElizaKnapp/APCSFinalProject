@@ -24,9 +24,10 @@ void setup() {
   // create the array of barriers
   // total screen space = 600 so say the barriers are at 75, 225, 375, 525
   barriers = new Barrier[4];
-  int startXPos = 75;
+  int startXPos = 50;
   for (int i = 0; i < 4; i++) {
-    barriers[i] = new Barrier(75 + 150 * i);
+    // TO CHANGE LOCATION- the first parameter is the xPos of the top left of the barrier, the second is the yPos
+    barriers[i] = new Barrier(startXPos + 150 * i, 450);
   }
 }
 
