@@ -27,6 +27,8 @@ Prototype: https://docs.google.com/document/d/1mjWuRU64XitgxhKxo5nE0pvTtIN6Cw9Z8
 ### DAY 4: May 27
 - **Rachel** <br>
   Fixed how alien bullets are shot. Started to work on the win screen of the game.
+### DAY 5: May 28
 - **Eliza** <br>
   Added a play again button for the win and the lose screens, added the block and barrier classes and implemented them in the main file.
-  
+- **Rachel** <br>
+  Kept track of the number of lives of the player. Started the lose screen.
