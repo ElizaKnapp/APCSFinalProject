@@ -204,6 +204,16 @@ void displayScore() {
 void displayLives() {
   textSize(25); 
   text("LIVES: " + lives, 15, 575);
+  // draw lives - 1 player-like shapes
+  
+  fill(#40F00C);
+  for (int i = 0; i < lives - 1; i++) {
+    rect(130 + i * 60, 560, p.size, p.size / 2);
+  }
+  
+  // separating line
+  fill(255);
+  rect(0, 535, 600, 2);
 }
 
 void displayUFO() {
