@@ -3,7 +3,7 @@ public class Block {
   boolean isVisible = true;
   int xPos;
   int yPos;
-  int size = 12; // should be the same as the barrier class
+  int size = 14; // should be the same as the barrier class
   
   Block(int x, int y) {
     xPos = x;
