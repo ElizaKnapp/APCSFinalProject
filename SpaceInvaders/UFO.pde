@@ -8,7 +8,7 @@ public class UFO extends Alien {
   
   void move() {
     this.xPos += this.speed;
-    if (this.xPos > 10000) { // change the frequency
+    if (this.xPos > 5000) { // change the frequency
       this.xPos = 0;
     }
     if (this.xPos > 700) {

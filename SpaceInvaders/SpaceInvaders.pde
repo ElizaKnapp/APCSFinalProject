@@ -31,7 +31,7 @@ void setup() {
   }
   
   // start UFO
-  ufo = new UFO(-10000, 40, 5); // starting x coordinate is very negative so it doesn't start on screen
+  ufo = new UFO(-5000, 40, 4); // starting x coordinate is very negative so it doesn't start on screen
   
   // create the array of barriers
   // total screen space = 600 so say the barriers are at 75, 225, 375, 525
