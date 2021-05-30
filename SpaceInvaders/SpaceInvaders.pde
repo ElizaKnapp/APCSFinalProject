@@ -11,6 +11,7 @@ int lives = 3; //number of lives the player has
 Barrier[] barriers;
 int score = 0;
 int rounds = 1;
+UFO ufo;
 
 // setup
 void setup() {
@@ -28,6 +29,9 @@ void setup() {
       }
     }
   }
+  
+  // start UFO
+  ufo = new UFO(0, 40, 5);
   
   // create the array of barriers
   // total screen space = 600 so say the barriers are at 75, 225, 375, 525
@@ -79,6 +83,7 @@ void draw() {
     displayLives();
     displayBarrier();
     displayScore();
+    displayUFO();
   }
 }
 
@@ -103,6 +108,14 @@ void checkBullet() {
         }
       }
     }
+    
+    // check if the ufo is hit
+    if (b.hitAlien(ufo)) {
+      b.changeVisibility();
+      ufo.changeVisibility();
+      score += ufo.score;
+    }
+
     if (!b.isVisible) {
       goodBullet = false;
     }
@@ -119,6 +132,7 @@ void checkBullet() {
       badBullet = false; //bad bullet does not exist on screen 
     }
   }
+  
 }
 
 void displayAlien() {
@@ -185,6 +199,11 @@ void displayScore() {
   fill(255);
   textSize(25);
   text("SCORE <" + rounds + "> : " + score, 0, 25);
+}
+
+void displayUFO() {
+  ufo.move();
+  ufo.display();
 }
 
 void keyPressed() {

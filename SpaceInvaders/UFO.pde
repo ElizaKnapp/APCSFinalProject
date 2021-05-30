@@ -1,21 +1,27 @@
-public class UFO extends Alien {
+public class UFO extends Alien {  
   
-  
-  UFO(int x, int y, int s) {
-    super(x, y, s);
+  UFO(int x, int y, int s) { // s parameter is speed
+    super(x, y, 50); // last parameter is score
     this.xDiameter = 30;
+    this.speed = s;
   }
   
   void move() {
     this.xPos += this.speed;
-    if (this.xPos > 1000) {
+    if (this.xPos > 10000) { // change the frequency
       this.xPos = 0;
+    }
+    if (this.xPos > 700) {
+      this.isVisible = true;
     }
   }
   
   void display() {
-    fill(#F0180C);
-    ellipse(this.xPos, this.yPos, this.xDiameter, this.yDiameter);
+    if (this.isVisible) {
+       fill(#F0180C);
+       ellipse(this.xPos, this.yPos, this.xDiameter, this.yDiameter);
+    }
+   
   }
   
 }
