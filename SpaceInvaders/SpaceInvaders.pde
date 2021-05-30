@@ -10,6 +10,7 @@ int alive = 55; //number of aliens not shot
 int lives = 3; //number of lives the player has
 Barrier[] barriers;
 int score = 0;
+int rounds = 1;
 
 // setup
 void setup() {
@@ -18,7 +19,7 @@ void setup() {
   aliens = new Alien[5][11];
   for (int i = 0; i < 5; i++) {
     for (int j = -5; j < 6; j++) {
-      aliens[i][j + 5] = new Alien(width / 2 + j * 40, 50 + i * 40); // CHANGE TO ACTUAL POSITIONS
+      aliens[i][j + 5] = new Alien(width / 2 + j * 40, 75 + i * 40); // CHANGE TO ACTUAL POSITIONS
     }
   }
   
@@ -52,6 +53,7 @@ void draw() {
     alive = 55;
     goodBullet = false; //if player's bullet is present
     badBullet = false; //if alien bullet is present
+    rounds += 1;
     // set everything up again to play
     setup();
   } else if (lives == 0) { //aliens killed player
@@ -70,6 +72,7 @@ void draw() {
     displayAlien();
     displayLives();
     displayBarrier();
+    displayScore();
   }
 }
 
@@ -171,6 +174,12 @@ void displayBarrier() {
   }
 }
 
+void displayScore() {
+  fill(255);
+  textSize(25);
+  text("SCORE <" + rounds + "> : " + score, 0, 25);
+}
+
 void keyPressed() {
   if (key == CODED) {
     if (keyCode == RIGHT) {
@@ -205,12 +214,14 @@ void mousePressed() { // when the player wants to start the game
   if (mouseX >= 50 && mouseX <= 550 && mouseY >= 250 && mouseY <= 300 && start == false) {
     start = true;
   }
-  // on the end screen
-  if (mouseX >= 100 && mouseX <= 500 && mouseY >= 295 && mouseY <= 325 && (lives == 0 || alive == 0)) {
+  // on the end screen (when you lose)
+  if (mouseX >= 100 && mouseX <= 500 && mouseY >= 295 && mouseY <= 325 && (lives == 0)) {
     lives = 3;
     alive = 55;
     goodBullet = false; //if player's bullet is present
     badBullet = false; //if alien bullet is present
+    score = 0;
+    rounds = 1;
     // set everything up again to play
     setup();
   }
