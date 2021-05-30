@@ -9,6 +9,7 @@ boolean start; //start screen
 int alive = 55; //number of aliens not shot
 int lives = 3; //number of lives the player has
 Barrier[] barriers;
+int score = 0;
 
 // setup
 void setup() {
@@ -42,15 +43,17 @@ void draw() {
     }
     textSize(50); 
     text("CLICK HERE TO PLAY", 50, 300);
-  } else if (alive == 0) { //player shot all the aliens
-    textSize(100); 
-    fill(255);
-    text("YOU WIN!", 75, 250);
-    if (mouseX >= 100 && mouseX <= 500 && mouseY >= 295 && mouseY <= 325) {
-      fill(#40F00C);
-    }
-    textSize(30);
-    text("CLICK HERE TO PLAY AGAIN", 100, 325);
+  } else if (alive == 0) { //player shot all the aliens  
+    //textSize(50); 
+    //fill(255);
+    //text("ROUND 2", 250, 300);
+    delay(1000);
+    lives = 3;
+    alive = 55;
+    goodBullet = false; //if player's bullet is present
+    badBullet = false; //if alien bullet is present
+    // set everything up again to play
+    setup();
   } else if (lives == 0) { //aliens killed player
     fill(255);
     textSize(75); 
