@@ -32,3 +32,8 @@ Prototype: https://docs.google.com/document/d/1mjWuRU64XitgxhKxo5nE0pvTtIN6Cw9Z8
   Added a play again button for the win and the lose screens, added the block and barrier classes and implemented them in the main file.
 - **Rachel** <br>
   Kept track of the number of lives of the player. Started the lose screen.
+### DAY 6: May 30
+- **Eliza** <br>
+  Created the UFO that is faster and worth a lot of points. Polished up changes to the display screen.
+- **Rachel** <br>
+  Created different types of aliens and kept track of the score based on which aliens are hit. Checked if aliens reached the player.
