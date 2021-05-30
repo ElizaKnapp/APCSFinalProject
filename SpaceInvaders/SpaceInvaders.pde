@@ -66,7 +66,7 @@ void draw() {
     rounds += 1;
     // set everything up again to play
     setup();
-  } else if (lives == 0) { //aliens killed player
+  } else if (lives == 0 || aliensReach()) { //aliens killed player
     fill(255);
     textSize(75); 
     text("GAME OVER!", 75, 250);
@@ -201,9 +201,27 @@ void displayScore() {
   text("SCORE <" + rounds + "> : " + score, 0, 25);
 }
 
+void displayLives() {
+  textSize(25); 
+  text("LIVES: " + lives, 15, 575);
+}
+
 void displayUFO() {
   ufo.move();
   ufo.display();
+}
+
+boolean aliensReach() {
+  for (int r = 0; r < aliens.length; r++) {
+    for (int c = 0; c < aliens[0].length; c++) {
+      if (aliens[r][c].isVisible) {
+        if (aliens[r][c].yPos >= 480) { //if aliens reach player
+          return true;
+        }
+      }
+    }
+  }
+  return false;
 }
 
 void keyPressed() {
@@ -221,11 +239,6 @@ void keyPressed() {
       goodBullet = true;
     }
   } 
-}
-
-void displayLives() {
-  textSize(25); 
-  text("LIVES: " + lives, 15, 575);
 }
   
 void keyReleased() { //when not pressing keys, the player doesn't move
