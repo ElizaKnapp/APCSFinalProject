@@ -3,11 +3,12 @@ public class Alien extends Character {
   boolean moveRight = true; // alien starts off moving to the right (when it moves left, this is false)
   int xDiameter = 25;
   int yDiameter = 25;
+  int score;
   
-  
-  Alien(int x, int y) {
+  Alien(int x, int y, int s) {
     super(x, y, 1); // 10 is the default alien speed
     isVisible = true;
+    score = s;
   }
   
   void setYPos(int newPos) {

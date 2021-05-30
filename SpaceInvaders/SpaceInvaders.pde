@@ -19,7 +19,13 @@ void setup() {
   aliens = new Alien[5][11];
   for (int i = 0; i < 5; i++) {
     for (int j = -5; j < 6; j++) {
-      aliens[i][j + 5] = new Alien(width / 2 + j * 40, 75 + i * 40); // CHANGE TO ACTUAL POSITIONS
+      if (i == 0) {
+        aliens[i][j + 5] = new Alien3(width / 2 + j * 40, 75 + i * 40); // CHANGE TO ACTUAL POSITIONS
+      } else if (i < 3) {
+        aliens[i][j + 5] = new Alien2(width / 2 + j * 40, 75 + i * 40); // CHANGE TO ACTUAL POSITIONS
+      } else {
+        aliens[i][j + 5] = new Alien1(width / 2 + j * 40, 75 + i * 40); // CHANGE TO ACTUAL POSITIONS
+      }
     }
   }
   
@@ -93,6 +99,7 @@ void checkBullet() {
           b.changeVisibility();
           aliens[r][c].changeVisibility(); //alien dies
           alive--; //less aliens visible
+          score += aliens[r][c].score;
         }
       }
     }
