@@ -13,23 +13,21 @@ int score = 0;
 int rounds = 1;
 UFO ufo;
 
-// setup
 void setup() {
   size(600, 600);
   p = new Player(280, 500, 8); //280 is the center
   aliens = new Alien[5][11];
   for (int i = 0; i < 5; i++) {
     for (int j = -5; j < 6; j++) {
-      if (i == 0) {
-        aliens[i][j + 5] = new Alien3(width / 2 + j * 40, 75 + i * 40); // CHANGE TO ACTUAL POSITIONS
-      } else if (i < 3) {
-        aliens[i][j + 5] = new Alien2(width / 2 + j * 40, 75 + i * 40); // CHANGE TO ACTUAL POSITIONS
-      } else {
-        aliens[i][j + 5] = new Alien1(width / 2 + j * 40, 75 + i * 40); // CHANGE TO ACTUAL POSITIONS
+      if (i == 0) { //top row of aliens worth 30 points
+        aliens[i][j + 5] = new Alien3(width / 2 + j * 40, 75 + i * 40);
+      } else if (i < 3) { //middle aliens
+        aliens[i][j + 5] = new Alien2(width / 2 + j * 40, 75 + i * 40);
+      } else { //botton aliens
+        aliens[i][j + 5] = new Alien1(width / 2 + j * 40, 75 + i * 40);
       }
     }
   }
-  
   // start UFO
   ufo = new UFO(-5000, 40, 4); // starting x coordinate is very negative so it doesn't start on screen
   
@@ -58,11 +56,11 @@ void draw() {
     //textSize(50); 
     //fill(255);
     //text("ROUND 2", 250, 300);
-    delay(1000);
+    delay(1000); //pause between rounds
     lives = 3;
     alive = 55;
-    goodBullet = false; //if player's bullet is present
-    badBullet = false; //if alien bullet is present
+    goodBullet = false;
+    badBullet = false;
     rounds += 1;
     // set everything up again to play
     setup();
@@ -93,14 +91,12 @@ void displayPlayer() {
 }
 
 void checkBullet() {
-  // check if bullet is shot
-  if (goodBullet) {
+  if (goodBullet) { //if bullet is shot
     b.move();
     b.display();
-    // check if bullet is hitting an alien
     for (int r = 0; r < 5; r++) {
       for (int c = 0; c < 11; c++) {
-        if (b.hitAlien(aliens[r][c])) {
+        if (b.hitAlien(aliens[r][c])) { //if bullet is hitting an alien
           b.changeVisibility();
           aliens[r][c].changeVisibility(); //alien dies
           alive--; //less aliens visible
@@ -116,7 +112,7 @@ void checkBullet() {
       score += ufo.score;
     }
 
-    if (!b.isVisible) {
+    if (!b.isVisible) { //if bullet hits something, no bullet is on screen
       goodBullet = false;
     }
   }
@@ -221,7 +217,7 @@ void displayUFO() {
   ufo.display();
 }
 
-boolean aliensReach() {
+boolean aliensReach() { //check if aliens get in the vicinity of the player
   for (int r = 0; r < aliens.length; r++) {
     for (int c = 0; c < aliens[0].length; c++) {
       if (aliens[r][c].isVisible) {
