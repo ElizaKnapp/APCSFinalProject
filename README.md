@@ -44,3 +44,6 @@ Prototype: https://docs.google.com/document/d/1mjWuRU64XitgxhKxo5nE0pvTtIN6Cw9Z8
 ### DAY 7: June 1
 - **Rachel** <br>
   Kept track of the last alive alien on the left and right sides so that the aliens move across the screen correctly.
+### DAY 8: June 2
+- **Eliza** <br>
+  Fixed the pixelation of the barriers when you destroy them so the configuration patterns form on setup and are less busy to look at.
