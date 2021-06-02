@@ -4,10 +4,32 @@ public class Block {
   int xPos;
   int yPos;
   int size = 14; // should be the same as the barrier class
+  int[][][] configs; // each configuration, 1 is green, 0 is black
   
   Block(int x, int y) {
     xPos = x;
     yPos = y;
+    configs = new int[4][size][size]; // 4 sets of size^2
+    for (int i = 0; i < 4; i++) {
+      for (int j = 0; j < size; j++) {
+        for (int k = 0; k < size; k++) {
+          if (i == 4) {
+            configs[i][j][k] = 1; // because this means it has 4 lives
+          }
+          else if (i > 0) { // if i is 1, 2 or 3
+            if ((int)Math.random() * 4 >= i) { //Math.random gives 0-3 so 1/4 of the squares are black
+              configs[i][j][k] = 0;
+            } else {
+              configs[i][j][k] = 1;
+            }
+          }
+          else {
+            // don't really need this bc it kills visibility anyway
+            configs[i][j][k] = 0;
+          }
+        }
+      }
+    }
   }
   
   void display() {
