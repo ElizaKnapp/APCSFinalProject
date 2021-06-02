@@ -2,7 +2,7 @@ public class Barrier {
   Block[] blocks;
   int xPos;
   int yPos;
-  int size = 14; // should be the same as the block class
+  int size = 14; // should be the same as the block class (MUST BE EVEN FOR PIXELATION)
   
   Barrier(int x, int y) {
     // this is the xPosition of the bottom left block

@@ -3,7 +3,7 @@ public class Block {
   boolean isVisible = true;
   int xPos;
   int yPos;
-  int size = 14; // should be the same as the barrier class
+  int size = 14; // should be the same as the barrier class (MUST BE EVEN FOR PIXELATION)
   int[][][] configs; // each configuration, 1 is green, 0 is black
   
   Block(int x, int y) {
@@ -37,14 +37,14 @@ public class Block {
       noStroke();
       // depending on the amount of lives, adjust the number that are colored
      
-      for (int i = 0; i < size; i++) {
-        for (int j = 0; j < size; j++) {
+      for (int i = 0; i < size; i += 2) {
+        for (int j = 0; j < size; j += 2) {
           if (configs[lives][i][j] == 1) {
             fill(#40F00C); // if it is 1, then fill green
           } else {
             fill(0);
           }
-          rect(xPos + i, yPos + j, 1, 1);
+          rect(xPos + i, yPos + j, 2, 2);
         }
       }
       
