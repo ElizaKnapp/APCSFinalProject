@@ -1,4 +1,5 @@
 // instance variables
+PImage a2;
 Player p;
 GoodBullet b;
 BadBullet bad;
@@ -17,6 +18,7 @@ int right = 10; //rightmost alien
 
 void setup() {
   size(600, 600);
+  loadImages();
   p = new Player(280, 500, 6); //280 is the center
   aliens = new Alien[5][11];
   for (int i = 0; i < 5; i++) {
@@ -24,7 +26,7 @@ void setup() {
       if (i == 0) { //top row of aliens worth 30 points
         aliens[i][j + 5] = new Alien3(width / 2 + j * 40, 75 + i * 40);
       } else if (i < 3) { //middle aliens
-        aliens[i][j + 5] = new Alien2(width / 2 + j * 40, 75 + i * 40);
+        aliens[i][j + 5] = new Alien2(width / 2 + j * 40, 75 + i * 40, a2);
       } else { //botton aliens
         aliens[i][j + 5] = new Alien1(width / 2 + j * 40, 75 + i * 40);
       }
@@ -85,6 +87,11 @@ void draw() {
     displayScore();
     displayUFO();
   }
+}
+
+//load all of the images
+void loadImages() {
+  a2 = loadImage("alien2.jpeg");
 }
 
 void displayPlayer() {

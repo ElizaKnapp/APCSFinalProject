@@ -4,6 +4,7 @@ public class Alien extends Character {
   int xDiameter = 25;
   int yDiameter = 25;
   int score;
+  PImage img;
   
   Alien(int x, int y, int s) {
     super(x, y, 1); // 10 is the default alien speed
