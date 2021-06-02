@@ -10,6 +10,9 @@ This project is a version of the game Space Invaders done in processing. It is a
 Prototype: https://docs.google.com/document/d/1mjWuRU64XitgxhKxo5nE0pvTtIN6Cw9Z8P2SdfM3YEw/edit?usp=sharing
 
 ## Compile/Run Instructions
+1. Clone the repository.
+2. Open SpaceInvaders.pde in Processing. 
+3. Click the "run" button in Processing.
 
 ## Development Log
 ### DAY 1: May 24
