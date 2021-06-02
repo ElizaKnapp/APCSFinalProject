@@ -1,7 +1,7 @@
 public class UFO extends Alien {  
   
   UFO(int x, int y, int s) { // s parameter is speed
-    super(x, y, 50); // last parameter is score
+    super(x, y, 50, a1); // last parameter is score
     this.xDiameter = 30;
     this.speed = s;
   }

@@ -1,5 +1,5 @@
 // instance variables
-PImage a2;
+PImage a1, a2, a3;
 Player p;
 GoodBullet b;
 BadBullet bad;
@@ -24,11 +24,11 @@ void setup() {
   for (int i = 0; i < 5; i++) {
     for (int j = -5; j < 6; j++) {
       if (i == 0) { //top row of aliens worth 30 points
-        aliens[i][j + 5] = new Alien3(width / 2 + j * 40, 75 + i * 40);
+        aliens[i][j + 5] = new Alien3(width / 2 + j * 42, 75 + i * 35, a3);
       } else if (i < 3) { //middle aliens
-        aliens[i][j + 5] = new Alien2(width / 2 + j * 40, 75 + i * 40, a2);
+        aliens[i][j + 5] = new Alien2(width / 2 + j * 42, 75 + i * 35, a2);
       } else { //botton aliens
-        aliens[i][j + 5] = new Alien1(width / 2 + j * 40, 75 + i * 40);
+        aliens[i][j + 5] = new Alien1(width / 2 + j * 42, 75 + i * 35, a1);
       }
     }
   }
@@ -91,7 +91,9 @@ void draw() {
 
 //load all of the images
 void loadImages() {
+  a1 = loadImage("alien1.jpeg");
   a2 = loadImage("alien2.jpeg");
+  a3 = loadImage("alien3.jpeg");
 }
 
 void displayPlayer() {
