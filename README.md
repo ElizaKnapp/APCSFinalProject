@@ -38,3 +38,6 @@ Prototype: https://docs.google.com/document/d/1mjWuRU64XitgxhKxo5nE0pvTtIN6Cw9Z8
   Created the UFO that is faster and worth a lot of points. Polished up changes to the display screen.
 - **Rachel** <br>
   Created different types of aliens and kept track of the score based on which aliens are hit. Checked if aliens reached the player.
+### DAY 7: June 1
+- **Rachel** <br>
+  Kept track of the last alive alien on the left and right sides so that the aliens move across the screen correctly.
