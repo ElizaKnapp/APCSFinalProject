@@ -12,11 +12,12 @@ Barrier[] barriers;
 int score = 0;
 int rounds = 1;
 UFO ufo;
-int left = 0, right = 10; //aliens on the edges
+int left = 0; //leftmost alien
+int right = 10; //rightmost alien
 
 void setup() {
   size(600, 600);
-  p = new Player(280, 500, 8); //280 is the center
+  p = new Player(280, 500, 6); //280 is the center
   aliens = new Alien[5][11];
   for (int i = 0; i < 5; i++) {
     for (int j = -5; j < 6; j++) {
@@ -146,6 +147,14 @@ void displayAlien() {
         left = c;
         r = aliens.length;
         c = aliens[0].length;
+      }
+    }
+  }
+  //find the rightmost alien
+  for (int c = 0; c < aliens[0].length; c++) {
+    for (int r = 0; r < aliens.length; r++) {
+      if (aliens[r][c].isVisible) {
+        right = c;
       }
     }
   }
