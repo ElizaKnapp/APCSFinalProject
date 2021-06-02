@@ -1,4 +1,5 @@
 // instance variables
+PImage a1, a2, a3, u;
 Player p;
 GoodBullet b;
 BadBullet bad;
@@ -17,21 +18,23 @@ int right = 10; //rightmost alien
 
 void setup() {
   size(600, 600);
+  loadImages();
   p = new Player(280, 500, 6); //280 is the center
   aliens = new Alien[5][11];
   for (int i = 0; i < 5; i++) {
     for (int j = -5; j < 6; j++) {
       if (i == 0) { //top row of aliens worth 30 points
-        aliens[i][j + 5] = new Alien3(width / 2 + j * 40, 75 + i * 40);
+        aliens[i][j + 5] = new Alien3(width / 2 + j * 42, 75 + i * 35, a3);
       } else if (i < 3) { //middle aliens
-        aliens[i][j + 5] = new Alien2(width / 2 + j * 40, 75 + i * 40);
+        aliens[i][j + 5] = new Alien2(width / 2 + j * 42, 75 + i * 35, a2);
       } else { //botton aliens
-        aliens[i][j + 5] = new Alien1(width / 2 + j * 40, 75 + i * 40);
+        aliens[i][j + 5] = new Alien1(width / 2 + j * 42, 75 + i * 35, a1);
       }
     }
   }
+  
   // start UFO
-  ufo = new UFO(-5000, 40, 4); // starting x coordinate is very negative so it doesn't start on screen
+  ufo = new UFO(-5000, 40, 4, u); // starting x coordinate is very negative so it doesn't start on screen
   
   // create the array of barriers
   // total screen space = 600 so say the barriers are at 75, 225, 375, 525
@@ -85,6 +88,14 @@ void draw() {
     displayScore();
     displayUFO();
   }
+}
+
+//load all of the images
+void loadImages() {
+  a1 = loadImage("alien1.jpeg");
+  a2 = loadImage("alien2.jpeg");
+  a3 = loadImage("alien3.jpeg");
+  u = loadImage("ufo.jpeg");
 }
 
 void displayPlayer() {

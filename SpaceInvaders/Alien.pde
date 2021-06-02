@@ -1,14 +1,16 @@
 public class Alien extends Character {
   boolean isVisible;
   boolean moveRight = true; // alien starts off moving to the right (when it moves left, this is false)
-  int xDiameter = 25;
-  int yDiameter = 25;
+  int xDiameter = 32;
+  int yDiameter = 22;
   int score;
+  PImage img;
   
-  Alien(int x, int y, int s) {
+  Alien(int x, int y, int s, PImage i) {
     super(x, y, 1); // 10 is the default alien speed
     isVisible = true;
     score = s;
+    img = i;
   }
   
   void setYPos(int newPos) {
@@ -30,8 +32,7 @@ public class Alien extends Character {
   
   void display() {
     if (isVisible) {
-      fill(255);
-      ellipse(this.xPos, this.yPos, xDiameter, yDiameter);
+      image(this.img, this.xPos-this.xDiameter/2, this.yPos, this.xDiameter, this.yDiameter);
     }
   }
   
