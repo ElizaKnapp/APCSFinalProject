@@ -12,6 +12,7 @@ Barrier[] barriers;
 int score = 0;
 int rounds = 1;
 UFO ufo;
+int left = 0, right = 10; //aliens on the edges
 
 void setup() {
   size(600, 600);
@@ -138,9 +139,19 @@ void displayAlien() {
       aliens[r][c].move();
     }
   }
+  //find the leftmost alien
+  for (int c = 0; c < aliens[0].length; c++) {
+    for (int r = 0; r < aliens.length; r++) {
+      if (aliens[r][c].isVisible) {
+        left = c;
+        r = aliens.length;
+        c = aliens[0].length;
+      }
+    }
+  }
   
   // check if aliens have touched side
-  if (aliens[0][10].xPos > 585 || aliens[0][0].xPos < 15) {
+  if (aliens[0][right].xPos > 585 || aliens[0][left].xPos < 15) {
     // if they are at an edge, change all alien directions
     for (int i = 0; i < 5; i++) {
       for (int j = 0; j < 11; j++) {
