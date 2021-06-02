@@ -141,7 +141,7 @@ void displayAlien() {
     }
   }
   //find the leftmost alien
-  for (int c = 0; c < aliens[0].length; c++) {
+  for (int c = left; c < aliens[0].length; c++) {
     for (int r = 0; r < aliens.length; r++) {
       if (aliens[r][c].isVisible) {
         left = c;
