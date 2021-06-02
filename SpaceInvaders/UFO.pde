@@ -1,8 +1,9 @@
 public class UFO extends Alien {  
   
-  UFO(int x, int y, int s) { // s parameter is speed
-    super(x, y, 50, a1); // last parameter is score
-    this.xDiameter = 30;
+  UFO(int x, int y, int s, PImage i) { // s parameter is speed
+    // change to red here!
+    super(x, y, 50, i); // last parameter is score
+    this.xDiameter = 35;
     this.speed = s;
   }
   
@@ -14,14 +15,6 @@ public class UFO extends Alien {
     if (this.xPos > 700) {
       this.isVisible = true;
     }
-  }
-  
-  void display() {
-    if (this.isVisible) {
-       fill(#F0180C);
-       ellipse(this.xPos, this.yPos, this.xDiameter, this.yDiameter);
-    }
-   
   }
   
 }

@@ -1,5 +1,5 @@
 // instance variables
-PImage a1, a2, a3;
+PImage a1, a2, a3, u;
 Player p;
 GoodBullet b;
 BadBullet bad;
@@ -33,7 +33,7 @@ void setup() {
     }
   }
   // start UFO
-  ufo = new UFO(-5000, 40, 4); // starting x coordinate is very negative so it doesn't start on screen
+  ufo = new UFO(-5000, 40, 4, u); // starting x coordinate is very negative so it doesn't start on screen
   
   // create the array of barriers
   // total screen space = 600 so say the barriers are at 75, 225, 375, 525
@@ -94,6 +94,7 @@ void loadImages() {
   a1 = loadImage("alien1.jpeg");
   a2 = loadImage("alien2.jpeg");
   a3 = loadImage("alien3.jpeg");
+  u = loadImage("ufo.jpeg");
 }
 
 void displayPlayer() {
