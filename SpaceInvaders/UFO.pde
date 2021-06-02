@@ -1,9 +1,8 @@
 public class UFO extends Alien {  
   
   UFO(int x, int y, int s, PImage i) { // s parameter is speed
-    // change to red here!
     super(x, y, 50, i); // last parameter is score
-    this.xDiameter = 35;
+    this.xDiameter = 40;
     this.speed = s;
   }
   
