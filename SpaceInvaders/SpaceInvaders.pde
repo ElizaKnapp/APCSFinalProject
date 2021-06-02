@@ -105,15 +105,16 @@ void checkBullet() {
           score += aliens[r][c].score;
         }
       }
-    }
-    
+    }  
     // check if the ufo is hit
     if (b.hitAlien(ufo)) {
       b.changeVisibility();
       ufo.changeVisibility();
       score += ufo.score;
     }
-
+    //check if bullets hit each other
+    b.hitBullet(bad); 
+    
     if (!b.isVisible) { //if bullet hits something, no bullet is on screen
       goodBullet = false;
     }
