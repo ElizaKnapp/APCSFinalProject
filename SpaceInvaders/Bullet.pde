@@ -14,13 +14,21 @@ public class Bullet extends Character {
   
   void display() {
     if (this.isVisible) {
-      // 20 because size = 40 and that is 40 / 2 !!!!
       ellipse(this.xPos, this.yPos, size, size);
     }
   }
   
   void changeVisibility() {
     isVisible = false;
+  }
+  
+  void hitBullet(Bullet b) {
+    if (b.isVisible && isVisible) {
+      if (dist(this.xPos, this.yPos, b.xPos, b.yPos) <= size) { //size is the sum of the bullets' radius
+        b.changeVisibility();
+        isVisible = false;
+      }
+    }
   }
   
 }
