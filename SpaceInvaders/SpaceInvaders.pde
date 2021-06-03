@@ -1,5 +1,5 @@
 // instance variables
-PImage a1, a2, a3, u, startScreen, startScreenOn;
+PImage a1, a2, a3, u, startScreen, startScreenOn, player;
 Player p;
 GoodBullet b;
 BadBullet bad;
@@ -19,7 +19,7 @@ int right = 10; //rightmost alien
 void setup() {
   size(600, 600);
   loadImages();
-  p = new Player(280, 500, 6); //280 is the center
+  p = new Player(280, 500, 6, player); //280 is the center
   aliens = new Alien[5][11];
   for (int i = 0; i < 5; i++) {
     for (int j = -5; j < 6; j++) {
@@ -99,6 +99,7 @@ void loadImages() {
   u = loadImage("ufo.jpeg");
   startScreen = loadImage("Start.jpeg");
   startScreenOn = loadImage("StartHighlighted.jpeg");
+  player = loadImage("Player.jpeg");
 }
 
 void displayPlayer() {
@@ -239,7 +240,7 @@ void displayLives() {
   
   fill(#40F00C);
   for (int i = 0; i < lives - 1; i++) {
-    rect(130 + i * 60, 560, p.size, p.size / 2);
+    image(player, 130 + i * 60, 555, p.size, p.size / 2);
   }
   
   // separating line

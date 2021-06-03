@@ -1,10 +1,12 @@
 public class Player extends Character {
   int direction = 0;
   int size = 40;
+  PImage img;
   
-  Player(int x, int y, int s) {
+  Player(int x, int y, int s, PImage i) {
     // sets initial y position to 500
     super(x, y, s);
+    img = i;
   }
   
   void move() {
@@ -19,8 +21,7 @@ public class Player extends Character {
   }
   
   void display() {
-    fill(#40F00C);
-    rect(this.xPos, this.yPos, size, size / 2);
+    image(img, this.xPos, this.yPos, size, size/2);
   }
   
   void changeDirection(int newDirection) {
