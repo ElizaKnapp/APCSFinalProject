@@ -1,8 +1,8 @@
 public class Alien extends Character {
   boolean isVisible;
   boolean moveRight = true; // alien starts off moving to the right (when it moves left, this is false)
-  int xDiameter = 32;
-  int yDiameter = 22;
+  int xDiameter;
+  int yDiameter;
   int score;
   PImage img;
   
