@@ -50,5 +50,5 @@ Prototype: https://docs.google.com/document/d/1mjWuRU64XitgxhKxo5nE0pvTtIN6Cw9Z8
 - **Rachel** <br>
   Canceled out bullets if they hit each other. Started experimenting with images.
 ### DAY 9: June 3
-- **Eliza & Rache;** <br>
-  Fixed the sizes of aliens. Created a better start screen and player with images.
+- **Eliza & Rachel** <br>
+  Fixed the sizes of aliens. Created a better start screen and player by loading images.
