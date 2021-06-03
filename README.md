@@ -49,3 +49,6 @@ Prototype: https://docs.google.com/document/d/1mjWuRU64XitgxhKxo5nE0pvTtIN6Cw9Z8
   Fixed the pixelation of the barriers when you destroy them so the configuration patterns form on setup and are less busy to look at. Cropped images and displayed them for aliens.
 - **Rachel** <br>
   Canceled out bullets if they hit each other. Started experimenting with images.
+### DAY 9: June 3
+- **Eliza & Rache;** <br>
+  Fixed the sizes of aliens. Created a better start screen and player with images.
