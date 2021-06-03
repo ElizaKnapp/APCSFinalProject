@@ -1,5 +1,5 @@
 // instance variables
-PImage a1, a2, a3, u;
+PImage a1, a2, a3, u, startScreen, startScreenOn;
 Player p;
 GoodBullet b;
 BadBullet bad;
@@ -51,12 +51,13 @@ void draw() {
   // wipe background to black
   background(0);
   if (!start) { //start screen
-    fill(255);
-    if (mouseX >= 50 && mouseX <= 550 && mouseY >= 250 && mouseY <= 300) {
-      fill(#40F00C);
+    image(startScreen, 50, 100, 500, 400);
+    
+    if (mouseX >= 50 && mouseX <= 530 && mouseY >= 150 && mouseY <= 175) {
+      image(startScreenOn, 50, 100, 500, 400);
     }
-    textSize(50); 
-    text("CLICK HERE TO PLAY", 50, 300);
+
+    
   } else if (alive == 0) { //player shot all the aliens  
     //textSize(50); 
     //fill(255);
@@ -96,6 +97,8 @@ void loadImages() {
   a2 = loadImage("alien2.jpeg");
   a3 = loadImage("alien3.jpeg");
   u = loadImage("ufo.jpeg");
+  startScreen = loadImage("Start.jpeg");
+  startScreenOn = loadImage("StartHighlighted.jpeg");
 }
 
 void displayPlayer() {
@@ -288,11 +291,11 @@ void keyReleased() { //when not pressing keys, the player doesn't move
 }
 
 void mousePressed() { // when the player wants to start the game
-  if (mouseX >= 50 && mouseX <= 550 && mouseY >= 250 && mouseY <= 300 && start == false) {
+  if (mouseX >= 50 && mouseX <= 550 && mouseY >= 150 && mouseY <= 175 && start == false) {
     start = true;
   }
   // on the end screen (when you lose)
-  if (mouseX >= 100 && mouseX <= 500 && mouseY >= 295 && mouseY <= 325 && (lives == 0)) {
+  if (mouseX >= 100 && mouseX <= 530 && mouseY >= 295 && mouseY <= 325 && (lives == 0)) {
     lives = 3;
     alive = 55;
     goodBullet = false; //if player's bullet is present
