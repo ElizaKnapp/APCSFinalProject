@@ -275,7 +275,7 @@ void keyPressed() {
       p.changeDirection(-1); //move left
     }
   }
-  if (keyCode == ' ') { //SPACE to shoot a bullet
+  if (start && keyCode == ' ') { //SPACE to shoot a bullet when game is playing
     if (!goodBullet){
       b = new GoodBullet(p.xPos + p.size / 2, p.yPos, -8);
       goodBullet = true;

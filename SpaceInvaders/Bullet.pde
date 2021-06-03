@@ -23,7 +23,7 @@ public class Bullet extends Character {
   }
   
   void hitBullet(Bullet b) {
-    if (b.isVisible && isVisible) {
+    if (b.isVisible && this.isVisible) {
       if (dist(this.xPos, this.yPos, b.xPos, b.yPos) <= size) { //size is the sum of the bullets' radius
         b.changeVisibility();
         isVisible = false;
