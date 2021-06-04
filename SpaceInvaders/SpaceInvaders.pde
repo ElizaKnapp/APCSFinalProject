@@ -1,18 +1,18 @@
 // instance variables
 PImage a1, a2, a3, u, startScreen, startScreenOn, player;
 Player p;
+Alien[][] aliens;
 GoodBullet b;
 BadBullet bad;
 boolean goodBullet = false; //if player's bullet is present
 boolean badBullet = false; //if alien bullet is present
-Alien[][] aliens;
-boolean start; //start screen
+UFO ufo;
 int alive = 55; //number of aliens not shot
 int lives = 3; //number of lives the player has
 Barrier[] barriers;
+boolean start; //start screen
 int score = 0;
 int rounds = 1;
-UFO ufo;
 int left = 0; //leftmost alien
 int right = 10; //rightmost alien
 
@@ -56,17 +56,12 @@ void draw() {
     if (mouseX >= 50 && mouseX <= 530 && mouseY >= 150 && mouseY <= 175) {
       image(startScreenOn, 50, 100, 500, 400);
     }
-
-    
   } else if (alive == 0) { //player shot all the aliens  
     //textSize(50); 
     //fill(255);
     //text("ROUND 2", 250, 300);
     delay(1000); //pause between rounds
-    lives = 3;
-    alive = 55;
-    goodBullet = false;
-    badBullet = false;
+    reset();
     rounds += 1;
     // set everything up again to play
     setup();
@@ -297,14 +292,20 @@ void mousePressed() { // when the player wants to start the game
   }
   // on the end screen (when you lose)
   if (mouseX >= 100 && mouseX <= 530 && mouseY >= 295 && mouseY <= 325 && (lives == 0)) {
-    lives = 3;
-    alive = 55;
-    goodBullet = false; //if player's bullet is present
-    badBullet = false; //if alien bullet is present
+    reset();
     score = 0;
     rounds = 1;
     // set everything up again to play
     setup();
   }
- 
+}
+
+//rest all instance variables
+void reset() {
+  lives = 3;
+  alive = 55;
+  goodBullet = false;
+  badBullet = false;
+  left = 0;
+  right = 10;
 }
