@@ -287,11 +287,11 @@ void keyReleased() { //when not pressing keys, the player doesn't move
 }
 
 void mousePressed() { // when the player wants to start the game
-  if (mouseX >= 50 && mouseX <= 550 && mouseY >= 150 && mouseY <= 175 && start == false) {
+  if ((start == false) && (mouseX >= 50 && mouseX <= 550 && mouseY >= 150 && mouseY <= 175)) {
     start = true;
   }
   // on the end screen (when you lose)
-  if (mouseX >= 100 && mouseX <= 530 && mouseY >= 295 && mouseY <= 325 && (lives == 0)) {
+  if ((lives == 0 || aliensReach()) && mouseX >= 100 && mouseX <= 530 && mouseY >= 295 && mouseY <= 325) {
     reset();
     score = 0;
     rounds = 1;
