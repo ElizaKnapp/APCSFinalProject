@@ -55,3 +55,6 @@ Prototype: https://docs.google.com/document/d/1mjWuRU64XitgxhKxo5nE0pvTtIN6Cw9Z8
 ### DAY 10: June 6
 - **Eliza**<br>
   A gift object flies through the sky now. The intention is that when you shoot it, you add special bullets to your inventory (perhaps with speed, more power...).
+### DAY 11: June 7
+- **Rachel** <br>
+  Made the aliens look animated with flapping. Created the explosion of the bomb bullet.
