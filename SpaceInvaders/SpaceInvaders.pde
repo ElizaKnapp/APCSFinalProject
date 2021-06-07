@@ -1,5 +1,5 @@
 // instance variables
-PImage a1, a2, aa2, a3, u, startScreen, startScreenOn, player, gift;
+PImage a1, aa1, a2, aa2, a3, aa3, u, startScreen, startScreenOn, player, gift;
 Player p;
 Alien[][] aliens;
 GoodBullet b;
@@ -25,11 +25,11 @@ void setup() {
   for (int i = 0; i < 5; i++) {
     for (int j = -5; j < 6; j++) {
       if (i == 0) { //top row of aliens worth 30 points
-        aliens[i][j + 5] = new Alien3(width / 2 + j * 42, 75 + i * 35, a3, a3);
+        aliens[i][j + 5] = new Alien3(width / 2 + j * 42, 75 + i * 35, a3, aa3);
       } else if (i < 3) { //middle aliens
         aliens[i][j + 5] = new Alien2(width / 2 + j * 42, 75 + i * 35, a2, aa2);
       } else { //botton aliens
-        aliens[i][j + 5] = new Alien1(width / 2 + j * 42, 75 + i * 35, a1, a1);
+        aliens[i][j + 5] = new Alien1(width / 2 + j * 42, 75 + i * 35, a1, aa1);
       }
     }
   }
@@ -94,9 +94,11 @@ void draw() {
 //load all of the images
 void loadImages() {
   a1 = loadImage("alien1.jpeg");
+  aa1 = loadImage("animate1.jpeg");
   a2 = loadImage("alien2.jpeg");
   aa2 = loadImage("animate2.jpeg");
   a3 = loadImage("alien3.jpeg");
+  aa3 = loadImage("animate3.jpeg");
   u = loadImage("ufo.jpeg");
   startScreen = loadImage("Start.jpeg");
   startScreenOn = loadImage("StartHighlighted.jpeg");

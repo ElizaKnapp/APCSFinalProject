@@ -35,7 +35,7 @@ public class Alien extends Character {
   
   void display() {
     if (isVisible) {
-      if (count % 20 < 10) {
+      if (count % 60 < 30) { //half the time will switch image
         image(this.img, this.xPos-this.xDiameter/2, this.yPos, this.xDiameter, this.yDiameter);
       } else {
         image(this.animate, this.xPos-this.xDiameter/2, this.yPos, this.xDiameter, this.yDiameter);
