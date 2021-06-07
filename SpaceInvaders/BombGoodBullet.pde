@@ -3,7 +3,7 @@ public class BombGoodBullet extends GoodBullet {
   BombGoodBullet(int x, int y, int speed) {
     super(x, y, speed);
     this.c = #FA7108;
-    this.size = 15;
+    this.size = 10;
   }
   
   boolean hitAlien(Alien a) {

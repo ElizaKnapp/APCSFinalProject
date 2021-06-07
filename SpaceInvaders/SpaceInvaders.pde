@@ -19,6 +19,7 @@ int right = 10; //rightmost alien
 
 // for the special bullets
 boolean speedBullet = false;
+boolean bombBullet = false;
 
 void setup() {
   size(600, 600);
@@ -123,6 +124,19 @@ void checkBullet() {
         if (b.hitAlien(aliens[r][c])) { //if bullet is hitting an alien
           b.changeVisibility();
           aliens[r][c].changeVisibility(); //alien dies
+          if (bombBullet) { //aliens surrounding hit alien dies
+            int[][] moves = {{0,1}, {0,-1}, {1,0}, {-1,0}}; //directions
+            for (int m = 0; m < moves.length; m++) { //kill aliens adjacent to the hit alien
+              int i = r + moves[m][0];
+              int j = c + moves[m][1];
+              if (i >= 0 && j >= 0 && i < aliens.length && j < aliens[0].length) {
+                aliens[i][j].changeVisibility();
+                alive--;
+                score += aliens[i][j].score;
+              }
+            }
+            bombBullet = false;
+          }
           alive--; //less aliens visible
           score += aliens[r][c].score;
         }
@@ -140,7 +154,7 @@ void checkBullet() {
       g.changeVisibility();
       // HERE DO WHATEVER HITTING THE GIFT BOX DOES
       speedBullet = true;
-      
+      //bombBullet = true;
     }
     
     //check if bullets hit each other
@@ -299,12 +313,12 @@ void keyPressed() {
   if (start && keyCode == ' ') { //SPACE to shoot a bullet when game is playing
     if (!goodBullet){
       if (speedBullet) {
-        // b = new FastGoodBullet(p.xPos + p.size / 2, p.yPos, -12); // makes the speed faster, also fast good bullets are purple
-        b = new BombGoodBullet(p.xPos + p.size / 2, p.yPos, -8);
+        b = new FastGoodBullet(p.xPos + p.size / 2, p.yPos, -12); // makes the speed faster, also fast good bullets are purple
         speedBullet = false;
-      } else {
-        // b = new GoodBullet(p.xPos + p.size / 2, p.yPos, -8);
+      } else if (bombBullet) {
         b = new BombGoodBullet(p.xPos + p.size / 2, p.yPos, -8);
+      } else {
+        b = new GoodBullet(p.xPos + p.size / 2, p.yPos, -8);
       }
       goodBullet = true;
     }
