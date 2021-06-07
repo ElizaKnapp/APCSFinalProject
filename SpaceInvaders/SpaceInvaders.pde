@@ -17,6 +17,9 @@ int rounds = 1;
 int left = 0; //leftmost alien
 int right = 10; //rightmost alien
 
+// for the special bullets
+boolean speedBullet = false;
+
 void setup() {
   size(600, 600);
   loadImages();
@@ -136,6 +139,8 @@ void checkBullet() {
       b.changeVisibility();
       g.changeVisibility();
       // HERE DO WHATEVER HITTING THE GIFT BOX DOES
+      speedBullet = true;
+      
     }
     
     //check if bullets hit each other
@@ -293,7 +298,12 @@ void keyPressed() {
   }
   if (start && keyCode == ' ') { //SPACE to shoot a bullet when game is playing
     if (!goodBullet){
-      b = new GoodBullet(p.xPos + p.size / 2, p.yPos, -8);
+      if (speedBullet) {
+        b = new GoodBullet(p.xPos + p.size / 2, p.yPos, -16); // makes the speed *2
+        speedBullet = false;
+      } else {
+        b = new GoodBullet(p.xPos + p.size / 2, p.yPos, -8);
+      }
       goodBullet = true;
     }
   } 
