@@ -23,7 +23,7 @@ boolean speedBullet = false;
 void setup() {
   size(600, 600);
   loadImages();
-  p = new Player(280, 500, 6, player); //280 is the center
+  p = new Player(290, 500, 6, player); //280 is the center
   aliens = new Alien[5][11];
   for (int i = 0; i < 5; i++) {
     for (int j = -5; j < 6; j++) {
@@ -299,10 +299,12 @@ void keyPressed() {
   if (start && keyCode == ' ') { //SPACE to shoot a bullet when game is playing
     if (!goodBullet){
       if (speedBullet) {
-        b = new FastGoodBullet(p.xPos + p.size / 2, p.yPos, -12); // makes the speed faster, also fast good bullets are purple
+        // b = new FastGoodBullet(p.xPos + p.size / 2, p.yPos, -12); // makes the speed faster, also fast good bullets are purple
+        b = new BombGoodBullet(p.xPos + p.size / 2, p.yPos, -8);
         speedBullet = false;
       } else {
-        b = new GoodBullet(p.xPos + p.size / 2, p.yPos, -8);
+        // b = new GoodBullet(p.xPos + p.size / 2, p.yPos, -8);
+        b = new BombGoodBullet(p.xPos + p.size / 2, p.yPos, -8);
       }
       goodBullet = true;
     }
