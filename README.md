@@ -52,3 +52,6 @@ Prototype: https://docs.google.com/document/d/1mjWuRU64XitgxhKxo5nE0pvTtIN6Cw9Z8
 ### DAY 9: June 3
 - **Eliza & Rachel** <br>
   Fixed the sizes of aliens. Created a better start screen and player by loading images.
+### DAY 10: June 6
+- **Eliza**<br>
+  A gift object flies through the sky now. The intention is that when you shoot it, you add special bullets to your inventory (perhaps with speed, more power...).
