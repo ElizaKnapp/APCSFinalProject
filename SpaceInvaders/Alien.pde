@@ -7,7 +7,7 @@ public class Alien extends Character {
   PImage img;
   
   Alien(int x, int y, int s, PImage i) {
-    super(x, y, 1); // 10 is the default alien speed
+    super(x, y, 1); // 1 is the default alien speed
     isVisible = true;
     score = s;
     img = i;
