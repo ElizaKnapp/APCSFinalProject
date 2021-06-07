@@ -1,10 +1,12 @@
 public class GoodBullet extends Bullet {
+  color c = #40F00C;
+  
   GoodBullet(int x, int y, int speed) {
     super(x, y, speed);
   }
   
   void display() {
-    fill(#40F00C);
+    fill(this.c);
     super.display();
     // if it reaches the top 
     if (this.yPos < 0) {

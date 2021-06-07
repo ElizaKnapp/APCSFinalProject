@@ -42,7 +42,7 @@ void setup() {
   
   //starts the gifts
   g = new Gift(-100, 40, 2, gift);
-  
+ 
   // create the array of barriers
   // total screen space = 600 so say the barriers are at 75, 225, 375, 525
   barriers = new Barrier[4];
@@ -299,7 +299,7 @@ void keyPressed() {
   if (start && keyCode == ' ') { //SPACE to shoot a bullet when game is playing
     if (!goodBullet){
       if (speedBullet) {
-        b = new GoodBullet(p.xPos + p.size / 2, p.yPos, -16); // makes the speed *2
+        b = new FastGoodBullet(p.xPos + p.size / 2, p.yPos, -12); // makes the speed faster, also fast good bullets are purple
         speedBullet = false;
       } else {
         b = new GoodBullet(p.xPos + p.size / 2, p.yPos, -8);
