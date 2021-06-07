@@ -1,7 +1,8 @@
 public abstract class Character {
-  int xPos, yPos, speed;
+  int xPos, yPos;
+  float speed;
   
-  Character(int x, int y, int s){
+  Character(int x, int y, float s){
     xPos = x;
     yPos = y;
     speed = s;

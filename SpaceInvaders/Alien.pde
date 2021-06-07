@@ -42,12 +42,7 @@ public class Alien extends Character {
       }
     }
   }
-  
-  //void changePos() {
-  //  move();
-  //  display();
-  //}
-  
+
   void changeVisibility() {
     isVisible = false;
   }
