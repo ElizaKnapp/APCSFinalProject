@@ -142,13 +142,15 @@ void checkBullet() {
                 }
               }
             }
-            bombBullet = false;
           }
           alive--; //less aliens visible
           score += aliens[r][c].score;
         }
       }
-    }  
+    }
+    if (bombBullet) { //so that only bombBullet can be shot once no matter what it hits
+      bombBullet = false;
+    }
     // check if the ufo is hit
     if (b.hitAlien(ufo)) {
       b.changeVisibility();
