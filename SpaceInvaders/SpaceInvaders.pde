@@ -135,9 +135,11 @@ void checkBullet() {
               int i = r + moves[m][0];
               int j = c + moves[m][1];
               if (i >= 0 && j >= 0 && i < aliens.length && j < aliens[0].length) {
-                aliens[i][j].changeVisibility();
-                alive--;
-                score += aliens[i][j].score;
+                if (aliens[i][j].isVisible) { //kills the aliens that are still alive
+                  alive--;
+                  score += aliens[i][j].score;
+                  aliens[i][j].changeVisibility();
+                }
               }
             }
             bombBullet = false;
@@ -153,7 +155,7 @@ void checkBullet() {
       ufo.changeVisibility();
       score += ufo.score;
     }
-    // check if the fit is hit
+    // check if the gift is hit
     if (b.hitAlien(g)) {
       b.changeVisibility();
       g.changeVisibility();
