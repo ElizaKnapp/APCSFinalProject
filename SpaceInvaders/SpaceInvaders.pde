@@ -1,5 +1,5 @@
 // instance variables
-PImage a1, aa1, a2, aa2, a3, aa3, u, startScreen, startScreenOn, player, gift;
+PImage a1, aa1, a2, aa2, a3, aa3, u, startScreen, startScreenOn, player, gift, deadPlayer;
 Player p;
 Alien[][] aliens;
 GoodBullet b;
@@ -26,10 +26,13 @@ int speedBulletCount;
 // you only get one bomb bullet
 boolean bombBullet = false;
 
+// to set up the delay after death
+int deathFrames = 1;
+
 void setup() {
   size(600, 600);
   loadImages();
-  p = new Player(290, 500, 6, player); //280 is the center
+  p = new Player(290, 500, 6, player, deadPlayer); //280 is the center
   aliens = new Alien[5][11];
   for (int i = 0; i < 5; i++) {
     for (int j = -5; j < 6; j++) {
@@ -70,15 +73,19 @@ void draw() {
       image(startScreenOn, 50, 100, 500, 400);
     }
   } else if (alive == 0) { //player shot all the aliens  
-    //textSize(50); 
-    //fill(255);
-    //text("ROUND 2", 250, 300);
-    delay(1000); //pause between rounds
+    // textSize(50); 
+    // fill(255);
+    // text("ROUND 2", 250, 300);
+    // delay(1000); //pause between rounds
     reset();
     rounds += 1;
     // set everything up again to play
     setup();
   } else if (lives == 0 || aliensReach()) { //aliens killed player
+    if (deathFrames == 1) {
+      delay(2000);
+      deathFrames = 0;
+    }
     fill(255);
     textSize(75); 
     text("GAME OVER!", 75, 250);
@@ -112,7 +119,9 @@ void loadImages() {
   startScreen = loadImage("Start.jpeg");
   startScreenOn = loadImage("StartHighlighted.jpeg");
   player = loadImage("Player.jpeg");
+  deadPlayer = loadImage("DeadPlayer.jpeg");
   gift = loadImage("Gift.jpeg");
+  
 }
 
 void displayPlayer() {
@@ -153,7 +162,7 @@ void checkBullet() {
       ufo.changeVisibility();
       score += ufo.score;
     }
-    // check if the fit is hit
+    // check if the gift is hit
     if (b.hitAlien(g)) {
       b.changeVisibility();
       g.changeVisibility();
@@ -179,7 +188,12 @@ void checkBullet() {
     bad.display();
     if (bad.hitPlayer(p)) { // when the bullet hits the player
       bad.changeVisibility(); //bullet disappears
+      if (lives == 1) {
+        p.displayDead();
+      }
       lives--; //player loses a life
+      // Here show the effect of being hit
+      
     }
     if (!bad.isVisible) {
       badBullet = false; //bad bullet does not exist on screen 
@@ -370,4 +384,5 @@ void reset() {
   badBullet = false;
   left = 0;
   right = 10;
+  deathFrames = 1;
 }
