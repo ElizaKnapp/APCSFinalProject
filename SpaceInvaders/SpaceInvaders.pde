@@ -18,13 +18,8 @@ int left = 0; //leftmost alien
 int right = 10; //rightmost alien
 
 // for the special bullets
-
-// you get 5 speed bullets
-boolean speedBullet = false;
-int speedBulletCount;
-
-// you only get one bomb bullet
-boolean bombBullet = false;
+int speedBulletCount; //5 speed bullets
+boolean bombBullet = false; // one bomb bullet
 
 // to set up the delay after death
 int deathFrames = 1;
@@ -144,9 +139,11 @@ void checkBullet() {
               int i = r + moves[m][0];
               int j = c + moves[m][1];
               if (i >= 0 && j >= 0 && i < aliens.length && j < aliens[0].length) {
-                aliens[i][j].changeVisibility();
-                alive--;
-                score += aliens[i][j].score;
+                if (aliens[i][j].isVisible) { //kills the aliens that are still alive
+                  alive--;
+                  score += aliens[i][j].score;
+                  aliens[i][j].changeVisibility();
+                }
               }
             }
             bombBullet = false;
@@ -155,12 +152,13 @@ void checkBullet() {
           score += aliens[r][c].score;
         }
       }
-    }  
+    }
     // check if the ufo is hit
     if (b.hitAlien(ufo)) {
       b.changeVisibility();
       ufo.changeVisibility();
       score += ufo.score;
+      if (bombBullet) bombBullet = false;
     }
     // check if the gift is hit
     if (b.hitAlien(g)) {
@@ -168,7 +166,6 @@ void checkBullet() {
       g.changeVisibility();
       // HERE DO WHATEVER HITTING THE GIFT BOX DOES
       if ((int)(Math.random() * 2) == 0) {
-        speedBullet = true;
         speedBulletCount = 5;
       } else {
         bombBullet = true;
@@ -176,7 +173,11 @@ void checkBullet() {
     }
     
     //check if bullets hit each other
-    b.hitBullet(bad); 
+    if(b.hitBullet(bad)) {
+      b.changeVisibility();
+      bad.changeVisibility();
+      if (bombBullet) bombBullet = false;
+    }
     
     if (!b.isVisible) { //if bullet hits something, no bullet is on screen
       goodBullet = false;
@@ -199,7 +200,6 @@ void checkBullet() {
       badBullet = false; //bad bullet does not exist on screen 
     }
   }
-  
 }
 
 void displayAlien() {
@@ -267,6 +267,7 @@ void displayBarrier() {
         b.display();
         // there is no good bullet now
         goodBullet = false; 
+        if (bombBullet) bombBullet = false;
       }
       // checks if it was hit by a good bullet
     }
@@ -335,13 +336,10 @@ void keyPressed() {
   }
   if (start && keyCode == ' ') { //SPACE to shoot a bullet when game is playing
     if (!goodBullet){
-      if (speedBullet) {
+      if (speedBulletCount > 0) {
         b = new FastGoodBullet(p.xPos + p.size / 2, p.yPos, -12); // makes the speed faster, also fast good bullets are purple
         // print("speed");
         speedBulletCount -= 1;
-        if (speedBulletCount == 0) {
-          speedBullet = false;
-        }
       } else if (bombBullet) {
         b = new BombGoodBullet(p.xPos + p.size / 2, p.yPos, -8);
         // print("bomb");
