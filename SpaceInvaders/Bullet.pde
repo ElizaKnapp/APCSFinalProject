@@ -22,13 +22,13 @@ public class Bullet extends Character {
     isVisible = false;
   }
   
-  void hitBullet(Bullet b) {
+  boolean hitBullet(Bullet b) {
     if (b.isVisible && this.isVisible) {
       if (dist(this.xPos, this.yPos, b.xPos, b.yPos) <= size) { //size is the sum of the bullets' radius
-        b.changeVisibility();
-        isVisible = false;
+        return true;
       }
     }
+    return false;
   }
   
 }

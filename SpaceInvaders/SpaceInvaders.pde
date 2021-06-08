@@ -142,20 +142,19 @@ void checkBullet() {
                 }
               }
             }
+            bombBullet = false;
           }
           alive--; //less aliens visible
           score += aliens[r][c].score;
         }
       }
     }
-    if (bombBullet) { //so that only bombBullet can be shot once no matter what it hits
-      bombBullet = false;
-    }
     // check if the ufo is hit
     if (b.hitAlien(ufo)) {
       b.changeVisibility();
       ufo.changeVisibility();
       score += ufo.score;
+      if (bombBullet) bombBullet = false;
     }
     // check if the gift is hit
     if (b.hitAlien(g)) {
@@ -171,7 +170,11 @@ void checkBullet() {
     }
     
     //check if bullets hit each other
-    b.hitBullet(bad); 
+    if(b.hitBullet(bad)) {
+      b.changeVisibility();
+      bad.changeVisibility();
+      if (bombBullet) bombBullet = false;
+    }
     
     if (!b.isVisible) { //if bullet hits something, no bullet is on screen
       goodBullet = false;
@@ -189,7 +192,6 @@ void checkBullet() {
       badBullet = false; //bad bullet does not exist on screen 
     }
   }
-  
 }
 
 void displayAlien() {
@@ -258,6 +260,7 @@ void displayBarrier() {
         // there is no good bullet now
         goodBullet = false; 
       }
+      if (bombBullet) bombBullet = false;
       // checks if it was hit by a good bullet
     }
     if (badBullet) {
