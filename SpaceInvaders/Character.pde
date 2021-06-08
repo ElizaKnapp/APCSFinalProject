@@ -11,4 +11,5 @@ public abstract class Character {
   abstract void move();
   
   abstract void display();
+  
 }

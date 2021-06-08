@@ -4,7 +4,6 @@ public class Player extends Character {
   PImage img, dead;
   
   Player(int x, int y, int s, PImage i, PImage d) {
-    // sets initial y position to 500
     super(x, y, s);
     img = i;
     dead = d;

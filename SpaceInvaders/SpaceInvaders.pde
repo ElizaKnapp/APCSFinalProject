@@ -17,17 +17,16 @@ int rounds = 1;
 int left = 0; //leftmost alien
 int right = 10; //rightmost alien
 
-// for the special bullets
+//special bullets
 int speedBulletCount; //5 speed bullets
-boolean bombBullet = false; // one bomb bullet
+boolean bombBullet = false; //one bomb bullet
 
-// to set up the delay after death
-int deathFrames = 1;
+int deathFrames = 1; //delay after death
 
 void setup() {
   size(600, 600);
   loadImages();
-  p = new Player(290, 500, 6, player, deadPlayer); //280 is the center
+  p = new Player(280, 500, 6, player, deadPlayer); //280 is the center
   aliens = new Alien[5][11];
   for (int i = 0; i < 5; i++) {
     for (int j = -5; j < 6; j++) {
@@ -39,28 +38,21 @@ void setup() {
         aliens[i][j + 5] = new Alien1(width / 2 + j * 42, 75 + i * 35, a1, aa1);
       }
     }
-  }
-  
-  // start UFO
-  ufo = new UFO(-5000, 40, 2, u); // starting x coordinate is very negative so it doesn't start on screen
-  
-  //starts the gifts
-  g = new Gift(-100, 40, 2, gift);
- 
-  // create the array of barriers
-  // total screen space = 600 so say the barriers are at 75, 225, 375, 525
-  barriers = new Barrier[4];
-  int startXPos = 50;
+  } 
+  ufo = new UFO(-5000, 40, 2, u); //starting x coordinate is very negative so it doesn't start on screen
+  g = new Gift(-100, 40, 2, gift); //gifts
+
+  //total screen space = 600 so say the barriers are at 75, 225, 375, 525
+  barriers = new Barrier[4]; //array of barriers
+  int startXPos = 40;
   for (int i = 0; i < 4; i++) {
-    // TO CHANGE LOCATION- the first parameter is the xPos of the top left of the barrier, the second is the yPos
+    // TO CHANGE LOCATION - the first parameter is the xPos of the top left of the barrier, the second is the yPos
     barriers[i] = new Barrier(startXPos + 150 * i, 440);
   }
 }
 
-// runs multiple times
 void draw() {
-  // wipe background to black
-  background(0);
+  background(0); //wipe background to black
   if (!start) { //start screen
     image(startScreen, 50, 100, 500, 400);
     
@@ -68,14 +60,9 @@ void draw() {
       image(startScreenOn, 50, 100, 500, 400);
     }
   } else if (alive == 0) { //player shot all the aliens  
-    // textSize(50); 
-    // fill(255);
-    // text("ROUND 2", 250, 300);
-    // delay(1000); //pause between rounds
     reset();
     rounds += 1;
-    // set everything up again to play
-    setup();
+    setup(); //set everything up again to play
   } else if (lives == 0 || aliensReach()) { //aliens killed player
     if (deathFrames == 1) {
       delay(2000);
@@ -187,7 +174,7 @@ void checkBullet() {
   if (badBullet) { //when an alien shoots
     bad.move();
     bad.display();
-    if (bad.hitPlayer(p)) { // when the bullet hits the player
+    if (bad.hitPlayer(p)) { //when the bullet hits the player
       bad.changeVisibility(); //bullet disappears
       if (lives == 1) {
         p.displayDead();
@@ -227,7 +214,6 @@ void displayAlien() {
       }
     }
   }
-  
   // check if aliens have touched side
   if (aliens[0][right].xPos > 585 || aliens[0][left].xPos < 15) {
     // if they are at an edge, change all alien directions
@@ -260,23 +246,20 @@ void displayAlien() {
 void displayBarrier() {
   for (int i = 0; i < 4; i++) {
     barriers[i].display();
-    if (goodBullet) {
+    if (goodBullet) { //check if hit by good bullet
       if (barriers[i].checkHit(b)) {
-        // if it is hit change the visibility
         b.changeVisibility();
         b.display();
-        // there is no good bullet now
-        goodBullet = false; 
+        goodBullet = false; //there is no good bullet after hitting barrier
         if (bombBullet) bombBullet = false;
       }
-      // checks if it was hit by a good bullet
     }
-    if (badBullet) {
+    if (badBullet) { //check if hit by bad bullet
       if (barriers[i].checkHit(bad)) {
         bad.changeVisibility();
         bad.display();
         badBullet = false;
-      }// checks if it was hit by a bad bullet
+      }
     }
   }
 }
@@ -338,12 +321,9 @@ void keyPressed() {
     if (!goodBullet){
       if (speedBulletCount > 0) {
         b = new FastGoodBullet(p.xPos + p.size / 2, p.yPos, -12); // makes the speed faster, also fast good bullets are purple
-        // print("speed");
         speedBulletCount -= 1;
-      } else if (bombBullet) {
+      } else if (bombBullet) { //turns to false if it hits anything in checkBullet()
         b = new BombGoodBullet(p.xPos + p.size / 2, p.yPos, -8);
-        // print("bomb");
-        // turns to false when it hits an alien up at the top
       } else {
         b = new GoodBullet(p.xPos + p.size / 2, p.yPos, -8);
       }
@@ -374,7 +354,7 @@ void mousePressed() { // when the player wants to start the game
   }
 }
 
-//rest all instance variables
+//reset all instance variables
 void reset() {
   lives = 3;
   alive = 55;

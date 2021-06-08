@@ -1,7 +1,7 @@
 public class Gift extends Alien {  
   
   Gift(int x, int y, float s, PImage i) { // s parameter is speed
-    super(x, y, 0, i, i); // last parameter is score, it = 0 because gifts don't add score
+    super(x, y, 0, i, i); // score is 0 because gifts don't add to score
     this.xDiameter = 25;
     this.yDiameter = 25;
     this.speed = s;
@@ -16,6 +16,5 @@ public class Gift extends Alien {
       this.isVisible = true;
     }
   }
-  
   
 }

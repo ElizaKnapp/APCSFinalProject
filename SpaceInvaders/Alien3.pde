@@ -5,4 +5,5 @@ public class Alien3 extends Alien {
     this.xDiameter = 26;
     this.yDiameter = 28;
   }
+  
 }
