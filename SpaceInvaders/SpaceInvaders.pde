@@ -18,13 +18,8 @@ int left = 0; //leftmost alien
 int right = 10; //rightmost alien
 
 // for the special bullets
-
-// you get 5 speed bullets
-boolean speedBullet = false;
-int speedBulletCount;
-
-// you only get one bomb bullet
-boolean bombBullet = false;
+int speedBulletCount; //5 speed bullets
+boolean bombBullet = false; // one bomb bullet
 
 void setup() {
   size(600, 600);
@@ -162,7 +157,6 @@ void checkBullet() {
       g.changeVisibility();
       // HERE DO WHATEVER HITTING THE GIFT BOX DOES
       if ((int)(Math.random() * 2) == 0) {
-        speedBullet = true;
         speedBulletCount = 5;
       } else {
         bombBullet = true;
@@ -328,13 +322,10 @@ void keyPressed() {
   }
   if (start && keyCode == ' ') { //SPACE to shoot a bullet when game is playing
     if (!goodBullet){
-      if (speedBullet) {
+      if (speedBulletCount > 0) {
         b = new FastGoodBullet(p.xPos + p.size / 2, p.yPos, -12); // makes the speed faster, also fast good bullets are purple
         // print("speed");
         speedBulletCount -= 1;
-        if (speedBulletCount == 0) {
-          speedBullet = false;
-        }
       } else if (bombBullet) {
         b = new BombGoodBullet(p.xPos + p.size / 2, p.yPos, -8);
         // print("bomb");
