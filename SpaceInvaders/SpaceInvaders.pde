@@ -259,8 +259,8 @@ void displayBarrier() {
         b.display();
         // there is no good bullet now
         goodBullet = false; 
+        if (bombBullet) bombBullet = false;
       }
-      if (bombBullet) bombBullet = false;
       // checks if it was hit by a good bullet
     }
     if (badBullet) {
