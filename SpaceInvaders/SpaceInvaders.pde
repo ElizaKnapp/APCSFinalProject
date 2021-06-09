@@ -362,5 +362,7 @@ void reset() {
   badBullet = false;
   left = 0;
   right = 10;
+  speedBulletCount = 0;
+  bombBullet = false;
   deathFrames = 1;
 }
