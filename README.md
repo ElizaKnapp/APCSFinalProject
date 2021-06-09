@@ -56,7 +56,12 @@ Prototype: https://docs.google.com/document/d/1mjWuRU64XitgxhKxo5nE0pvTtIN6Cw9Z8
 - **Eliza**<br>
   A gift object flies through the sky now. The intention is that when you shoot it, you add special bullets to your inventory (perhaps with speed, more power...).
 ### DAY 11: June 7
-- **Rachel** <br>
-  Made the aliens look animated with flapping. Created the explosion of the bomb bullet.
 - **Eliza**<br>
   Created the speed bullets and made it so that a gift randomly gives you either 5 speed bullets or 1 bomb bullet.
+- **Rachel** <br>
+  Made the aliens look animated with flapping. Created the explosion of the bomb bullet.
+### DAY 12: June 8
+- **Eliza**<br>
+  Made Player splat when they lose all three of their lives. Modified transition to next round.
+- **Rachel** <br>
+  Fixed small things that relate to handling the special bullets.
