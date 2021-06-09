@@ -154,8 +154,12 @@ void checkBullet() {
       // HERE DO WHATEVER HITTING THE GIFT BOX DOES
       if ((int)(Math.random() * 2) == 0) {
         speedBulletCount = 5;
+        bombBullet = false; //so that speedBullet doesn't have bombBullet properties if gift is hit by bombBullet
+        //print("speed");
       } else {
         bombBullet = true;
+        speedBulletCount = 0;
+        //print("bomb");
       }
     }
     
