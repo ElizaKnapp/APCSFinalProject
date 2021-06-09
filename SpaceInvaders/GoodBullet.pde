@@ -8,8 +8,7 @@ public class GoodBullet extends Bullet {
   void display() {
     fill(this.c);
     super.display();
-    // if it reaches the top 
-    if (this.yPos < 0) {
+    if (this.yPos < 0) { // if it reaches the top 
       this.changeVisibility(); 
     }
   }
