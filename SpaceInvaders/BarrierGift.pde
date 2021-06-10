@@ -2,8 +2,8 @@ public class BarrierGift extends Gift {
   
   BarrierGift(int x, int y, float s, PImage i) {
     super(x, y, s, i);
-    this.xDiameter = 30;
-    this.xDiameter = 25;
+    this.xDiameter = 35;
+    this.yDiameter = 25;
   }
   
   void move() {

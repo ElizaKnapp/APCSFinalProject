@@ -1,5 +1,5 @@
 // instance variables
-PImage a1, aa1, a2, aa2, a3, aa3, u, startScreen, startScreenOn, player, gift, deadPlayer;
+PImage a1, aa1, a2, aa2, a3, aa3, u, startScreen, startScreenOn, player, gift, deadPlayer, barrierGift;
 Player p;
 Alien[][] aliens;
 GoodBullet b;
@@ -8,6 +8,7 @@ boolean goodBullet = false; //if player's bullet is present
 boolean badBullet = false; //if alien bullet is present
 UFO ufo;
 Gift g; // this is the gift box
+BarrierGift bgift;
 int alive = 55; //number of aliens not shot
 int lives = 3; //number of lives the player has
 Barrier[] barriers;
@@ -41,6 +42,7 @@ void setup() {
   } 
   ufo = new UFO(-5000, 40, 2, u); //starting x coordinate is very negative so it doesn't start on screen
   g = new Gift(-500, 40, 2, gift); //gifts
+  bgift = new BarrierGift(0, 40, 2, barrierGift);
 
   //total screen space = 600 so say the barriers are at 75, 225, 375, 525
   barriers = new Barrier[4]; //array of barriers
@@ -86,6 +88,7 @@ void draw() {
     displayScore();
     displayUFO();
     displayGift();
+    displayBarrierGift();
   }
 }
 
@@ -103,6 +106,7 @@ void loadImages() {
   player = loadImage("Player.jpeg");
   deadPlayer = loadImage("DeadPlayer.jpeg");
   gift = loadImage("Gift.jpeg");
+  barrierGift = loadImage("BarrierGift.jpeg");
   
 }
 
@@ -297,6 +301,11 @@ void displayUFO() {
 void displayGift() {
   g.move();
   g.display();
+}
+
+void displayBarrierGift() {
+  bgift.move();
+  bgift.display();
 }
 
 boolean aliensReach() { //check if aliens get in the vicinity of the player
