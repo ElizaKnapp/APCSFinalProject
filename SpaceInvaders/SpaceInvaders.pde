@@ -42,7 +42,7 @@ void setup() {
   } 
   ufo = new UFO(-5000, 40, 2, u); //starting x coordinate is very negative so it doesn't start on screen
   g = new Gift(-500, 40, 2, gift); //gifts
-  bgift = new BarrierGift(0, 40, 2, barrierGift);
+  bgift = new BarrierGift(-2000, 40, 2, barrierGift);
 
   //total screen space = 600 so say the barriers are at 75, 225, 375, 525
   barriers = new Barrier[4]; //array of barriers
@@ -165,6 +165,14 @@ void checkBullet() {
         speedBulletCount = 0;
         //print("bomb");
       }
+    }
+    
+    // check if the barrier gift is hit
+    if (b.hitAlien(bgift)) {
+      b.changeVisibility();
+      bgift.changeVisibility();
+      // here reset the barriers
+      resetBarriers();
     }
     
     //check if bullets hit each other
@@ -378,4 +386,14 @@ void reset() {
   speedBulletCount = 0;
   bombBullet = false;
   deathFrames = 1;
+}
+
+void resetBarriers() {
+  //total screen space = 600 so say the barriers are at 75, 225, 375, 525
+  barriers = new Barrier[4]; //array of barriers
+  int startXPos = 40;
+  for (int i = 0; i < 4; i++) {
+    // TO CHANGE LOCATION - the first parameter is the xPos of the top left of the barrier, the second is the yPos
+    barriers[i] = new Barrier(startXPos + 150 * i, 440);
+  }
 }
