@@ -42,7 +42,7 @@ void setup() {
   } 
   ufo = new UFO(-5000, 40, 2, u); //starting x coordinate is very negative so it doesn't start on screen
   g = new Gift(-500, 40, 2, gift); //gifts
-  bgift = new BarrierGift(-2000, 40, 2, barrierGift);
+  bgift = new BarrierGift(-2000, 40, 3, barrierGift);
 
   //total screen space = 600 so say the barriers are at 75, 225, 375, 525
   barriers = new Barrier[4]; //array of barriers
