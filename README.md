@@ -65,3 +65,7 @@ Prototype: https://docs.google.com/document/d/1mjWuRU64XitgxhKxo5nE0pvTtIN6Cw9Z8
   Made Player splat when they lose all three of their lives. Modified transition to next round.
 - **Rachel** <br>
   Fixed small things that relate to handling the special bullets.
+### DAY 13: June 10
+- **Eliza**<br>
+  Created another type of gift called barrier gift that regenerates the barriers when you hit it.
+  
