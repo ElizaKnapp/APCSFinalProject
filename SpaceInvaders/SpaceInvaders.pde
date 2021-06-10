@@ -165,14 +165,14 @@ void checkBullet() {
         speedBulletCount = 0;
         //print("bomb");
       }
-    }
-    
+    }  
     // check if the barrier gift is hit
     if (b.hitAlien(bgift)) {
       b.changeVisibility();
       bgift.changeVisibility();
       // here reset the barriers
       resetBarriers();
+      if (bombBullet) bombBullet = false; //if bombBullet hits it
     }
     
     //check if bullets hit each other
