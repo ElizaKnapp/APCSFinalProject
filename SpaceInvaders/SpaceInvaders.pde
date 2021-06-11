@@ -309,6 +309,9 @@ void displayUFO() {
 void displayGift() {
   g.move();
   g.display();
+  if (bombBullet && b.yPos < 0) {
+    bombBullet = false;
+  }
 }
 
 void displayBarrierGift() {

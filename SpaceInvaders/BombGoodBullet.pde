@@ -16,4 +16,6 @@ public class BombGoodBullet extends GoodBullet {
     }
   }
   
+  
+  
 }
